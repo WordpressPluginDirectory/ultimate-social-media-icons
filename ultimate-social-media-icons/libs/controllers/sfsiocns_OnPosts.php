@@ -499,7 +499,7 @@ function sfsi_footer_script() {
                         if (d.getElementById(id)) return;
                         js = d.createElement(s);
                         js.id = id;
-                        js.src = "//connect.facebook.net/<?php echo $icons_language; ?>/sdk.js#xfbml=1&version=v2.5";
+                        js.src = "https//connect.facebook.net/<?php echo $icons_language; ?>/sdk.js#xfbml=1&version=v3.2";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
                 </script>

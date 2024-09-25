@@ -29,7 +29,7 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
     </p>
     <ul class="tab_3_list">
         <li><?php _e('It comes across as','ultimate-social-media-icons') ?> <span><?php _e('more professional','ultimate-social-media-icons') ?></span> <?php _e('and gives your site','ultimate-social-media-icons') ?>  <span><?php _e('more “credit”','ultimate-social-media-icons') ?></span></li>
-        <li><?php _e('A smart automatic animation can','ultimate-social-media-icons') ?> <span><?php _e('make your visitors aware of your icons','ultimate-social-media-icons') ?></span><?php ' '._e('in an unintrusive manner','ultimate-social-media-icons') ?> </li>
+        <li><?php _e('A smart automatic animation can','ultimate-social-media-icons') ?> <span><?php _e('make your visitors aware of your icons','ultimate-social-media-icons') ?></span><?php ' '._e(' in an unintrusive manner','ultimate-social-media-icons') ?> </li>
     </ul>
 
     <p style="padding:0px;">

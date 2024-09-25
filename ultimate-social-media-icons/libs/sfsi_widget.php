@@ -113,7 +113,7 @@ function register_sfsi_widgets()
 add_action('widgets_init', 'register_sfsi_widgets');
 
 /* check the icons visiblity  */
-function sfsi_check_visiblity($isFloter = 0, $shortcode = 0)
+function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 {
 	global $wpdb;
 	/* Access the saved settings in database  */
@@ -450,28 +450,40 @@ function sfsi_check_visiblity($isFloter = 0, $shortcode = 0)
 	/* if floating of icons is active create a floater div */
 	$icons_float = '';
 
-	if ($sfsi_icons_float == "yes" && $isFloter == 1) {
+	if ($sfsi_icons_float == "yes" && $isFloater == 1) {
 
 		$styleMargin = '';
 		if ($sfsi_icons_floatPosition == "top-left") {
-			$styleMargin = "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;";
+			$styleMargin = ! empty($sfsi_section9['sfsi_icons_floatMargin_top']) ? "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_left']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "top-right") {
-			$styleMargin = "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;";
+			$styleMargin = ! empty($sfsi_section9['sfsi_icons_floatMargin_top']) ? "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "center-left") {
-			$styleMargin = "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_top']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_bottom']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_left']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "center-right") {
-			$styleMargin = "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_top']) ? "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_bottom']) ? "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "bottom-left") {
-			$styleMargin = "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_bottom']) ? "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_left']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "bottom-right") {
-			$styleMargin = "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_bottom']) ? "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "center-bottom") {
-			$styleMargin = "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_bottom']) ? "margin-bottom:" . $sfsi_section9['sfsi_icons_floatMargin_bottom'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_left']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		} elseif ($sfsi_icons_floatPosition == "center-top") {
-			$styleMargin = "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;";
+			$styleMargin = !empty($sfsi_section9['sfsi_icons_floatMargin_top']) ? "margin-top:" . $sfsi_section9['sfsi_icons_floatMargin_top'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_left']) ? "margin-left:" . $sfsi_section9['sfsi_icons_floatMargin_left'] . "px;" : "";
+			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		}
 
-
+		
 		/*$icons_float = isset($styleMargin) && !empty($styleMargin) ? '<style type="text/css">#sfsi_floater { ' . $styleMargin . ' }</style>' : '';*/
 		$icons_float .= '<div class="norm_row sfsi_wDiv sfsi_floater_position_' . $sfsi_icons_floatPosition . '" id="sfsi_floater" style="z-index: 9999;width:' . $width . 'px;text-align:' . $icons_alignment . ';' . $position . $styleMargin . '">';
 		$icons_float .= $icons;
@@ -593,7 +605,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 		case "rss":
 
 			$url 		=  isset($sfsi_section2_options['sfsi_rss_url']) && !empty($sfsi_section2_options['sfsi_rss_url']) ? $sfsi_section2_options['sfsi_rss_url'] : '';
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			$toolClass   = "rss_tool_bdr";
 			$hoverdiv    = '';
@@ -642,7 +654,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			} else {
 				$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'https://follow.it/now';
 			}
-      $url = esc_url($url);
+			$url = esc_url($url);
 			$toolClass   = "email_tool_bdr";
 			$arrow_class = "bot_eamil_arow";
 
@@ -775,7 +787,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$share_option = isset($sfsi_section2_options['sfsi_facebookShare_option']) && !empty($sfsi_section2_options['sfsi_facebookShare_option']) ? $sfsi_section2_options['sfsi_facebookShare_option'] : false;
 			if ((false != $like_option && $like_option == "yes") || (false != $share_option && $share_option == "yes")) {
 				$url = ($sfsi_section2_options['sfsi_facebookPage_url']) ? $sfsi_section2_options['sfsi_facebookPage_url'] : '';
-        $url = esc_url($url);
+  			$url = esc_url($url);
 				$hoverSHow = 1;
 				$hoverdiv  = '';
 
@@ -873,7 +885,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 
 			$about_page = isset($sfsi_section2_options['sfsi_twitter_aboutPage']) && !empty($sfsi_section2_options['sfsi_twitter_aboutPage']) ? $sfsi_section2_options['sfsi_twitter_aboutPage'] : false;
       
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			if ($follow_me == "yes" || $about_page == "yes") {
 				$hoverSHow = 1;
@@ -976,7 +988,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			}
 
 			$url = isset($sfsi_section2_options['sfsi_youtube_pageUrl']) && !empty($sfsi_section2_options['sfsi_youtube_pageUrl']) ? $sfsi_section2_options['sfsi_youtube_pageUrl'] : '';
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			//Giving alternative text to image
 			if (!empty($sfsi_section5_options['sfsi_youtube_MouseOverText'])) {
@@ -1063,7 +1075,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 
 			$visit_icon = $visit_iconsUrl . "pinterest.png";
 			$url = (isset($sfsi_section2_options['sfsi_pinterest_pageUrl'])) ? $sfsi_section2_options['sfsi_pinterest_pageUrl'] : '';
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			//Giving alternative text to image
 			if (isset($sfsi_section5_options['sfsi_pinterest_MouseOverText']) && !empty($sfsi_section5_options['sfsi_pinterest_MouseOverText'])) {
@@ -1142,7 +1154,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$arrow_class = "bot_pintst_arow";
 
 			$url = (isset($sfsi_section2_options['sfsi_instagram_pageUrl'])) ? $sfsi_section2_options['sfsi_instagram_pageUrl'] : '';
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			$instagram_user_name = isset($sfsi_section4_options['sfsi_instagram_User']) && !empty($sfsi_section4_options['sfsi_instagram_User']) ? $sfsi_section4_options['sfsi_instagram_User'] : false;
 
@@ -1275,7 +1287,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$arrow_class = "bot_pintst_arow";
 
 			$url = (isset($sfsi_section2_options['sfsi_vk_pageURL'])) ? $sfsi_section2_options['sfsi_vk_pageURL'] : '';
-      $url = esc_url($url);
+			$url = esc_url($url);
 
 			// $vk_user_name = isset($sfsi_section4_options['sfsi_vk_User']) && !empty($sfsi_section4_options['sfsi_vk_User']) ? $sfsi_section4_options['sfsi_vk_User'] : false;
 

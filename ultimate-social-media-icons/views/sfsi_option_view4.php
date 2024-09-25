@@ -467,7 +467,7 @@ $hide = "display:none;";
 
                     <?php
                         printf(
-                            __( '%1$sNote:%2$s This plugin uses %3$sone%4$s API shared by all users of this plugin. There is a limit (set by Facebook) how often this API can get the counts per day, so it may happen that it returns “0 counts”later in the day.%5$sTherefore we implemented a solution as part of our Premium Plugin where you can %6$seasily%7$s set up your own API in a few steps, which will fix this problem.%8$s or learn more.%9$s','ultimate-social-media-icons' ),
+                            __( '%1$sNote:%2$s This plugin uses %3$sone%4$s API shared by all users of this plugin. There is a limit (set by Facebook) how often this API can get the counts per day, <b style="color:red;">so it may happen that it returns “0 counts” later in the day.</b>%5$sTherefore we implemented a solution as part of our Premium Plugin where you can %6$seasily%7$s set up your own API in a few steps, which will fix this problem.%8$s or learn more.%9$s','ultimate-social-media-icons' ),
                             '<p class="sfsi_shared_premium"><b>',
                             '</b>',
                             '<u>',

@@ -1755,6 +1755,10 @@ function sfsi_validationStep4() {
     /* validate twitter */
     if (sfsi_validator(SFSI('input[name="sfsi_twitter_countsDisplay"]'), 'activte') && sfsi_validator(SFSI('input[name="sfsi_twitter_countsDisplay"]'), 'checked')) {
         if (SFSI('input[name="sfsi_twitter_countsFrom"]:checked').val() == 'source') {
+            if (sfsi_validator(SFSI('input[name="sfsi_display_counts"][value="no"]'), 'checked')){
+                return true;
+            }
+
             if (!sfsi_validator(SFSI('input[name="tw_consumer_key"]'), 'blank')) {
                 showErrorSuc("error", "Error : Please Enter a valid consumer key", 4);
                 SFSI('input[name="tw_consumer_key"]').addClass('inputError');
@@ -2760,8 +2764,9 @@ SFSI(document).ready(function(s) {
                     global_error = 0, !1) : (sfsi_update_step5(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Any other wishes for your main icons?" tab.', 8),
                     global_error = 0, !1) : (sfsi_update_step6(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display icons at the end of every post?" tab.', 8),
                     global_error = 0, !1) : (sfsi_update_step7(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display a pop-up, asking people to subscribe?" tab.', 8),
+                    global_error = 0, !1) : (sfsi_update_step9(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Where shall they be displayed" tab.', 8),
                     /*global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", 'Saved! Now go to the <a href="widgets.php">widget</a> area and place the widget into your sidebar (if not done already)', 8))))))));*/
-                    global_error = 0, !1) : void(0 == global_error && showErrorSuc("success", '', 8))))))));
+                    global_error = 0, !1) : void(0 == global_error && showErrorSuc("success", '', 8)))))))));
         }),
         /*SFSI(".fileUPInput").live("change", function() {*/
         SFSI(document).on("change", '.fileUPInput', function() {
