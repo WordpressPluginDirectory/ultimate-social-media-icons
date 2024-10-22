@@ -511,6 +511,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 	$alt_text = '';
 	$new_window = '';
 	$class = '';
+	$extra_html = "";
 
 	/* access  all saved settings in admin */
 	$sfsi_section1_options = maybe_unserialize(get_option('sfsi_section1_options', false));
@@ -2066,6 +2067,8 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				}
 			}
 
+			$extra_html .= '<div id="success-alert" class="success-alert">' . __('URL has been copied successfully!', 'ultimate-social-media-icons') . '</div>';
+
 			break;
 		case "mastodon":
 			$url = ($sfsi_section2_options['sfsi_mastodon_pageURL']) ? $sfsi_section2_options['sfsi_mastodon_pageURL'] : '';
@@ -2239,6 +2242,10 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 		}
 		$icons .= "</div>";
 		$icons .= "</div>";
+
+		if(isset($extra_html)) {
+			$icons .= $extra_html;
+		}
 	}
 	return  $icons;
 }

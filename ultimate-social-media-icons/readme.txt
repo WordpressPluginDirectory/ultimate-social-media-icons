@@ -3,7 +3,7 @@ Contributors: socialdude, socialtech
 Tags: share, social, share icons, social media, widget
 Requires at least: 3.5
 Tested up to: 6.6.2
-Stable tag: 2.9.3
+Stable tag: 2.9.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -302,6 +302,9 @@ It depends on which language you speak :) however probably the answer is â€œyesâ
 
 == Changelog ==
 
+= 2.9.4 =
+* Refactored Youtube subscribe button to use channel id
+
 = 2.9.3 =
 * Tested with WordPress 6.6.2
 * Aligned new icons for desktop (Copy URL, InHa, RIA)
@@ -412,13 +415,5 @@ It depends on which language you speak :) however probably the answer is â€œyesâ
 
 == Upgrade Notice ==
 
-= 2.9.3 =
-* Tested with WordPress 6.6.2
-* Aligned new icons for desktop (Copy URL, InHa, RIA)
-* Fixed option to hide/show display count for X/Twitter platform
-* Improved CSS generation for icons (widget)
-* Fixed issue when not all settings were saved in Section 3
-* Added new icons for Copy Site URL button
-* Added more detailed errors during settings conflicts
-* Updated facebook SDK to v3.2
-* Improved placement of Whatsapp and Pinterest icons 
+= 2.9.4 =
+* Refactored Youtube subscribe button to use channel id

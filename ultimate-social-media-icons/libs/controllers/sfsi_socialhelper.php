@@ -614,17 +614,19 @@ class sfsi_SocialHelper
 
 	/* create on page youtube subscribe icon */
 	public function sfsi_YouTubeSub( $yuser ) {
-		$option4 = maybe_unserialize( get_option( 'sfsi_section4_options', false ) );
-		$option2 = maybe_unserialize( get_option( 'sfsi_section2_options', false ) );
-
-		if( $option2['sfsi_youtubeusernameorid'] == 'name' ) {
-			$yuser = $option2['sfsi_ytube_user'];
-			$youtube_html = '<div class="g-ytsubscribe" data-channel="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
-		} else {
-			$yuser = $option2['sfsi_ytube_chnlid'];
-			$youtube_html = '<div class="g-ytsubscribe" data-channelid="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
+		$option2 = maybe_unserialize(get_option( 'sfsi_section2_options', false ));
+		$sfsi_ytube_chnlid = empty($option2['sfsi_ytube_chnlid']) ? '' : $option2['sfsi_ytube_chnlid'];
+		$sfsi_ytube_user = empty($option2['sfsi_plus_ytube_user']) ? '' : $option2['sfsi_plus_ytube_user'];
+	
+		if(empty($sfsi_ytube_user) && empty($sfsi_ytube_chnlid)){
+			return '<div>Set Youtube Channel ID</div>';
 		}
-		return $youtube_html;
+	
+		if(!empty($sfsi_ytube_chnlid)){
+			return '<div class="g-ytsubscribe" data-channelid="' . $sfsi_ytube_chnlid . '" data-layout="default" data-count="hidden"></div>';
+		}
+	
+		return '<div class="g-ytsubscribe" data-channel="' . $sfsi_ytube_user . '" data-layout="default" data-count="hidden"></div>';
 	}
 
 	/* create on page pinit button icon */

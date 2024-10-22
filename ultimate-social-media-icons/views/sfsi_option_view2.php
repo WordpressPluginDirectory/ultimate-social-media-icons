@@ -349,33 +349,25 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
 
             <p><?php _e( 'The Youtube icon should allow users to... ', 'ultimate-social-media-icons' ); ?></p>
 
-            <p class="radio_section fb_url"><input name="sfsi_youtube_page" <?php echo ($option2['sfsi_youtube_page'] == 'yes') ? 'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" /><label><?php _e( 'Visit my Youtube page at:', 'ultimate-social-media-icons' ); ?></label><input name="sfsi_youtube_pageUrl" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_youtube_pageUrl'] != '') ?  $option2['sfsi_youtube_pageUrl'] : ''; ?>" class="add" /></p>
-            <p class="radio_section fb_url"><input name="sfsi_youtube_follow" <?php echo ($option2['sfsi_youtube_follow'] == 'yes') ? 'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" /><label><?php _e( 'Subscribe to me on Youtube', 'ultimate-social-media-icons' ); ?> <span><?php _e( '(allows people to subscribe to you directly, without leaving your blog)', 'ultimate-social-media-icons' ); ?></span></label></p>
+            <p class="radio_section fb_url">
+                <input name="sfsi_youtube_page" <?php echo ($option2['sfsi_youtube_page'] == 'yes') ? 'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" />
+                <label><?php _e( 'Visit my Youtube page at:', 'ultimate-social-media-icons' ); ?></label>
+                <input name="sfsi_youtube_pageUrl" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_youtube_pageUrl'] != '') ?  $option2['sfsi_youtube_pageUrl'] : ''; ?>" class="add" />
+            </p>
+            <p class="radio_section fb_url">
+            <input name="sfsi_youtube_follow" <?php echo ($option2['sfsi_youtube_follow'] == 'yes') ? 'checked="true"' : ''; ?> type="checkbox" value="yes" class="styled" />
+                <label><?php _e( 'Subscribe to me on Youtube', 'ultimate-social-media-icons' ); ?> 
+                    <span><?php _e( '(allows people to subscribe to you directly, without leaving your blog)', 'ultimate-social-media-icons' ); ?></span>
+                </label>
+            </p>
 
             <!--Adding Code for Channel Id and Channel Name-->
             <div class="cstmutbewpr">
-                <ul class="enough_waffling">
-                    <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo (isset($option2['sfsi_youtubeusernameorid']) && $option2['sfsi_youtubeusernameorid'] == 'name') ? 'checked="true"' : ''; ?> type="radio" value="name" class="styled" /><label>User ID</label></li>
-                    <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo (isset($option2['sfsi_youtubeusernameorid']) && $option2['sfsi_youtubeusernameorid'] == 'id') ? 'checked="true"' : ''; ?> type="radio" value="id" class="styled" /><label>Channel Id</label></li>
-                </ul>
                 <div class="cstmutbtxtwpr">
-                    <?php
-                    $sfsi_youtubeusernameorid = isset($option2['sfsi_youtubeusernameorid']) ? $option2['sfsi_youtubeusernameorid'] : "";
-                    ?>
-                    <div class="cstmutbchnlnmewpr" <?php if ($sfsi_youtubeusernameorid != 'id') {
-                                                        echo 'style="display: block;"';
-                                                    } ?>>
-                        <p class="extra_pp"><label><?php _e( 'UserName:', 'ultimate-social-media-icons' ); ?></label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option2['sfsi_ytube_user']) && $option2['sfsi_ytube_user'] != '') ?  $option2['sfsi_ytube_user'] : ''; ?>" placeholder="Youtube username" class="add" /></p>
+                    <div class="cstmutbchnlidwpr" style="display: block;">
+                        <p class="extra_pp"><label><?php _e( 'ChannelId:', 'ultimate-social-media-icons' ); ?></label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option2['sfsi_ytube_chnlid']) && $option2['sfsi_ytube_chnlid'] != '') ? esc_attr($option2['sfsi_ytube_chnlid']) : ''; ?>" placeholder="youtube channel id" class="add" style="margin-left: 125px;" /></p>
                         <div class="utbe_instruction">
-                            <?php _e( 'To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information"', 'ultimate-social-media-icons' ); ?>
-                        </div>
-                    </div>
-                    <div class="cstmutbchnlidwpr" <?php if ($sfsi_youtubeusernameorid == 'id') {
-                                                        echo 'style="display: block;"';
-                                                    } ?>>
-                        <p class="extra_pp"><label><?php _e( 'ChannelId:', 'ultimate-social-media-icons' ); ?></label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option2['sfsi_ytube_chnlid']) && $option2['sfsi_ytube_chnlid'] != '') ?  $option2['sfsi_ytube_chnlid'] : ''; ?>" placeholder="youtube_channel_id" class="add" /></p>
-                        <div class="utbe_instruction">
-                            <?php _e( 'To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information"', 'ultimate-social-media-icons' ); ?>
+                            <?php _e( 'To find your Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings" , then click "Advanced settings". Your Channel ID will be displayed there.', 'ultimate-social-media-icons' ); ?>
                         </div>
                     </div>
                 </div>

@@ -393,7 +393,6 @@ function sfsiFB_Share_Custom($permalink, $show_count = false)
 
 /* add all external javascript to wp_footer */
 function sfsi_footer_script() {
-
     $sfsi_section1 = maybe_unserialize(get_option('sfsi_section1_options', false));
     if (!is_array($sfsi_section1)){
         $sfsi_section1 = [];
@@ -449,7 +448,6 @@ function sfsi_footer_script() {
     }
 
     if ($sfsi_section1['sfsi_facebook_display'] == "yes" || ($flagIconAfterPost && $flagEnableLikeAndShare) ) {
-
         if (isset($sfsi_section6['sfsi_rectfb'])){
             if ((($sfsi_section6['sfsi_rectfb'] == "yes")) || $sisi_common_options_check && ($sfsi_section2['sfsi_facebookLike_option'] == "yes")) {
 
@@ -499,275 +497,266 @@ function sfsi_footer_script() {
                         if (d.getElementById(id)) return;
                         js = d.createElement(s);
                         js.id = id;
-                        js.src = "https//connect.facebook.net/<?php echo $icons_language; ?>/sdk.js#xfbml=1&version=v3.2";
+                        js.src = "https://connect.facebook.net/<?php echo $icons_language; ?>/sdk.js#xfbml=1&version=v3.2";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
                 </script>
                 <?php
             }
         }
-			}
-			$isYoutubeFollowFeatureActive = (isset($sfsi_section2['sfsi_youtube_follow']) && "yes" == $sfsi_section2['sfsi_youtube_follow']) && (isset($sfsi_section2['sfsi_youtubeusernameorid']) &&
-				!empty($sfsi_section2['sfsi_youtubeusernameorid'])) && (
-				("name" == $sfsi_section2['sfsi_youtubeusernameorid'] &&
-					isset($sfsi_section2['sfsi_ytube_user']) &&
-					!empty($sfsi_section2['sfsi_ytube_user'])) || ("id" == $sfsi_section2['sfsi_youtubeusernameorid'] &&
-					isset($sfsi_section2['sfsi_ytube_chnlid']) &&
-					!empty($sfsi_section2['sfsi_ytube_chnlid'])));
+	}
+
+	$isYoutubeFollowFeatureActive = (isset($sfsi_section2['sfsi_youtube_follow']) && "yes" == $sfsi_section2['sfsi_youtube_follow']) && (isset($sfsi_section2['sfsi_youtubeusernameorid']) &&
+		!empty($sfsi_section2['sfsi_youtubeusernameorid'])) && (
+		("name" == $sfsi_section2['sfsi_youtubeusernameorid'] &&
+			isset($sfsi_section2['sfsi_ytube_user']) &&
+			!empty($sfsi_section2['sfsi_ytube_user'])) || ("id" == $sfsi_section2['sfsi_youtubeusernameorid'] &&
+			isset($sfsi_section2['sfsi_ytube_chnlid']) &&
+			!empty($sfsi_section2['sfsi_ytube_chnlid'])));
+		
     if(isset($sfsi_section1['sfsi_youtube_display'])){
         if ($sfsi_section1['sfsi_youtube_display'] == "yes" && $sisi_common_options_check && $isYoutubeFollowFeatureActive) {
             ?>
-            <script type="text/javascript">
-                window.___gcfg = {
-                    lang: 'en-US'
-                };
-                (function() {
-                    var po = document.createElement('script');
-                    po.type = 'text/javascript';
-                    po.async = true;
-                    po.src = 'https://apis.google.com/js/plusone.js';
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(po, s);
-                })();
-            </script>
+			<script src="https://apis.google.com/js/platform.js"></script>
             <?php
         }
     }
 
-		$isLinkedInFollowFeatureActive = (isset($sfsi_section2['sfsi_linkedin_follow']) && !empty($sfsi_section2['sfsi_linkedin_follow']) && ("yes" == $sfsi_section2['sfsi_linkedin_follow']) && isset($sfsi_section2['sfsi_linkedin_followCompany']) && !empty($sfsi_section2['sfsi_linkedin_followCompany']));
+	$isLinkedInFollowFeatureActive = (isset($sfsi_section2['sfsi_linkedin_follow']) && !empty($sfsi_section2['sfsi_linkedin_follow']) && ("yes" == $sfsi_section2['sfsi_linkedin_follow']) && isset($sfsi_section2['sfsi_linkedin_followCompany']) && !empty($sfsi_section2['sfsi_linkedin_followCompany']));
 
-		$isLinkedInRecommnedFeatureActive = (isset($sfsi_section2['sfsi_linkedin_recommendBusines']) && !empty($sfsi_section2['sfsi_linkedin_recommendBusines']) && ("yes" == $sfsi_section2['sfsi_linkedin_recommendBusines'])
-			&& isset($sfsi_section2['sfsi_linkedin_recommendProductId']) && !empty($sfsi_section2['sfsi_linkedin_recommendProductId'])
-			&& isset($sfsi_section2['sfsi_linkedin_recommendCompany']) && !empty($sfsi_section2['sfsi_linkedin_recommendCompany']));
+	$isLinkedInRecommnedFeatureActive = (isset($sfsi_section2['sfsi_linkedin_recommendBusines']) && !empty($sfsi_section2['sfsi_linkedin_recommendBusines']) && ("yes" == $sfsi_section2['sfsi_linkedin_recommendBusines'])
+		&& isset($sfsi_section2['sfsi_linkedin_recommendProductId']) && !empty($sfsi_section2['sfsi_linkedin_recommendProductId'])
+		&& isset($sfsi_section2['sfsi_linkedin_recommendCompany']) && !empty($sfsi_section2['sfsi_linkedin_recommendCompany']));
 
-        if(isset($sfsi_section1['sfsi_linkedin_display'])){
-            if ($sfsi_section1['sfsi_linkedin_display'] == "yes" && ($isLinkedInFollowFeatureActive || $isLinkedInRecommnedFeatureActive) && $sisi_common_options_check) {
-                ?>
-                <script src="//platform.linkedin.com/in.js" type="text/javascript">
-                    lang: en_US
-                </script>
-                <?php
-            }
-        }
+	if(isset($sfsi_section1['sfsi_linkedin_display'])){
+		if ($sfsi_section1['sfsi_linkedin_display'] == "yes" && ($isLinkedInFollowFeatureActive || $isLinkedInRecommnedFeatureActive) && $sisi_common_options_check) {
+			?>
+			<script src="//platform.linkedin.com/in.js" type="text/javascript">
+				lang: en_US
+			</script>
+			<?php
+		}
+	}
 
-		/* activate footer credit link */
-		if (get_option('sfsi_footer_sec') == "yes") {
-			if (!is_admin()) {
-				//$footer_link='<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; absolute; text-align: center;">Social media & sharing icons powered by  <a href="https://wordpress.org/plugins/ultimate-social-media-icons/" target="new">UltimatelySocial</a> ';
+	/* activate footer credit link */
+	if (get_option('sfsi_footer_sec') == "yes") {
+		if (!is_admin()) {
+			//$footer_link='<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; absolute; text-align: center;">Social media & sharing icons powered by  <a href="https://wordpress.org/plugins/ultimate-social-media-icons/" target="new">UltimatelySocial</a> ';
 
-				$sfsi_themecheck = new sfsi_ThemeCheck();
-				$domain 	= $sfsi_themecheck->sfsi_plus_getdomain(get_site_url());
-				$firstCharacter = substr($domain, 0, 1);
-				if (in_array($firstCharacter, array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'))) {
-					$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;">Social media & sharing icons  powered by <a href="https://www.ultimatelysocial.com/?utm_source=usmplus_settings_page&utm_campaign=credit_link_to_homepage&utm_medium=banner" target="new">UltimatelySocial </a>';
-					$footer_link .= "</div>";
-					echo $footer_link;
-				} else if (in_array($firstCharacter, array('n', 'o', 'p', 'q', 'r', 's'))) {
-					$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;"><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit_new&utm_medium=banner" target="new">Wordpress Social Share Plugin </a> powered by Ultimatelysocial';
-					$footer_link .= "</div>";
-					echo $footer_link;
-				} else {
-					$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000;text-align: center;"><a href="https://www.ultimatelysocial.com/?utm_source=usmplus_settings_page&utm_campaign=credit_link_to_homepage&utm_medium=banner" target="new">Social Share Buttons and Icons</a> powered by Ultimatelysocial';
-					$footer_link .= "</div>";
-					echo $footer_link;
-				}
+			$sfsi_themecheck = new sfsi_ThemeCheck();
+			$domain 	= $sfsi_themecheck->sfsi_plus_getdomain(get_site_url());
+			$firstCharacter = substr($domain, 0, 1);
+			if (in_array($firstCharacter, array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'))) {
+				$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;">Social media & sharing icons  powered by <a href="https://www.ultimatelysocial.com/?utm_source=usmplus_settings_page&utm_campaign=credit_link_to_homepage&utm_medium=banner" target="new">UltimatelySocial </a>';
+				$footer_link .= "</div>";
+				echo $footer_link;
+			} else if (in_array($firstCharacter, array('n', 'o', 'p', 'q', 'r', 's'))) {
+				$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000; text-align: center;"><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit_new&utm_medium=banner" target="new">Wordpress Social Share Plugin </a> powered by Ultimatelysocial';
+				$footer_link .= "</div>";
+				echo $footer_link;
+			} else {
+				$footer_link = '<div class="sfsiplus_footerLnk" style="margin: 0 auto;z-index:1000;text-align: center;"><a href="https://www.ultimatelysocial.com/?utm_source=usmplus_settings_page&utm_campaign=credit_link_to_homepage&utm_medium=banner" target="new">Social Share Buttons and Icons</a> powered by Ultimatelysocial';
+				$footer_link .= "</div>";
+				echo $footer_link;
 			}
 		}
 	}
-	/* filter the content of post */
-	add_filter('the_content', 'sfsi_social_buttons_below');
+}
 
-	/* Filter for Home Archive pages */
-	add_filter( 'the_excerpt', 'sfsi_content_beforeafterblogposts' );
-	function sfsi_content_beforeafterblogposts( $content ) {
+/* filter the content of post */
+add_filter('the_content', 'sfsi_social_buttons_below');
 
-		if ( !is_home() ) {
-			return $content;
-		}
+/* Filter for Home Archive pages */
+add_filter( 'the_excerpt', 'sfsi_content_beforeafterblogposts' );
+function sfsi_content_beforeafterblogposts( $content ) {
 
-		$sfsi_section6 = maybe_unserialize( get_option( 'sfsi_section6_options', false ) );
-		$sfsi_section9 = maybe_unserialize( get_option( 'sfsi_section9_options', false ) );
-
-		/* Remove if hide from Admin panel */
-		if ( isset( $sfsi_section9["sfsi_responsive_icons_after_post_on_taxonomy"] ) && $sfsi_section9["sfsi_responsive_icons_after_post_on_taxonomy"] != "yes" ) {
-			return $content;
-		}
-
-		$content = $content . sfsi_social_responsive_buttons(null, $sfsi_section6);
-
+	if ( !is_home() ) {
 		return $content;
 	}
 
-	/* update footer for frontend and admin both */
-	add_action( 'in_admin_footer', 'sfsi_footer_script' );
-	add_action( 'wp_footer', 'sfsi_footer_script' );
+	$sfsi_section6 = maybe_unserialize( get_option( 'sfsi_section6_options', false ) );
+	$sfsi_section9 = maybe_unserialize( get_option( 'sfsi_section9_options', false ) );
 
-	add_action( 'wp_footer', 'sfsi_check_PopUp' );
-	add_action( 'wp_footer', 'sfsi_frontFloter' );
-	add_action( 'wp_footer', 'sfsi_sticky_bar_front' );
-
-	/* Frontend Popup for Administrator user */
-	add_action( 'wp_footer', 'sfsi_forum_notification_popup' );
-
-	/* ping to vendor site on updation of new post */
-
-	//<---------------------* Responsive icons *----------------->
-	function sfsi_social_responsive_buttons($content, $option6, $server_side = false)
-	{
-		global $wp;
-		$count = 60;
-
-		if (((isset($option6["sfsi_display_button_type"]) && $option6["sfsi_display_button_type"] == "responsive_button")) || $server_side) :
-			$option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
-			$option3 = maybe_unserialize(get_option('sfsi_section3_options', false));
-			$option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
-			$icons = "";
-			$sfsi_responsive_icons = (isset($option6["sfsi_responsive_icons"]) ? $option6["sfsi_responsive_icons"] : null);
-			$current_url = in_the_loop() ? add_query_arg($_GET ? $_GET : array(), get_permalink()) : add_query_arg($wp->query_vars, home_url($wp->request));
-			if (is_null($sfsi_responsive_icons)) {
-				if ($server_side) {
-					$sfsi_responsive_icons = array(
-						"default_icons" => array(
-							"facebook" => array( "active" => "yes", "text" => "Share on Facebook", "url" => "" ),
-							"Twitter" => array( "active" => "yes", "text" => "Post on X", "url" => "" ),
-							"Follow" => array( "active" => "yes", "text" => "Follow us", "url" => "" ),
-							"Pinterest" => array( "active" => "yes", "text" => "Save", "url" => "" ),
-						),
-						"custom_icons" => array(),
-						"settings" => array(
-							"icon_size" => "Medium",
-							"icon_width_type" => "Fully responsive",
-							"icon_width_size" => 240,
-							"edge_type" => "Round",
-							"edge_radius" => 5,
-							"style" => "Gradient",
-							"margin" => 10,
-							"text_align" => "Centered",
-							"show_count" => "no",
-							"counter_color" => "#aaaaaa",
-							"counter_bg_color" => "#fff",
-							"share_count_text" => "SHARES",
-							"margin_above" => 10,
-							"margin_below" => 10,
-
-						)
-					);
-				} else {
-					return ""; // dont return anything if options not set;
-				}
-			}
-
-			$twitter_text = isset($option2['sfsi_twitter_aboutPageText']) && !empty($option2['sfsi_twitter_aboutPageText']) ? $option2['sfsi_twitter_aboutPageText'] : false;
-
-			$icon_width_type = $sfsi_responsive_icons["settings"]["icon_width_type"];
-			$margin_above = $sfsi_responsive_icons["settings"]["margin_above"];
-			$margin_below = $sfsi_responsive_icons["settings"]["margin_below"];
-
-			$show_count = $sfsi_responsive_icons["settings"]["show_count"];
-
-			$couter_display = "none";
-			if ( $option4['sfsi_display_counts'] == 'yes' && $option4['sfsi_responsive_share_count'] == 'yes' && $show_count == 'yes' ) {
-				$counter_class = "sfsi_responsive_with_counter_icons";
-				$couter_display = "inline-block";
-				$counts = sfsi_getCounts(true);
-				$count = 0;
-				if (isset($counts['email_count'])) {
-					$count = (int) ($counts['email_count']) + $count;
-				}
-				if (isset($counts['fb_count'])) {
-					$count = (int) ($counts['fb_count']) + $count;
-				}
-				if (isset($counts['twitter_count'])) {
-					$count = (int) ($counts['twitter_count']) + $count;
-				}
-
-			} else {
-				$counter_class = "sfsi_responsive_without_counter_icons";
-			}
-
-			/* Add mouseOve effect */
-			$mouse_hover_effect = '';
-			if ( isset( $option3['sfsi_mouseOver'] ) && 'yes' === $option3['sfsi_mouseOver'] && !is_admin() ) {
-				$mouse_hover_effect .= ' sfsi-mouseOver-effect sfsi-mouseOver-effect-';
-				$mouse_hover_effect .= isset( $option3["sfsi_mouseOver_effect"] ) ? $option3["sfsi_mouseOver_effect"] : 'fade_in';
-			}
-
-			$icons .= "<div class='sfsiaftrpstwpr'><div class='sfsi_responsive_icons". esc_attr( $mouse_hover_effect )."' style='display:block;margin-top:" . $margin_above . "px; margin-bottom: " . $margin_below . "px; " . ($icon_width_type == "Fully Responsive" ? "width:100%;display:flex; " : 'width:100%') . "' data-icon-width-type='" . $icon_width_type . "' data-icon-width-size='" . $sfsi_responsive_icons["settings"]['icon_width_size'] . "' data-edge-type='" . $sfsi_responsive_icons["settings"]['edge_type'] . "' data-edge-radius='" . $sfsi_responsive_icons["settings"]['edge_radius'] . "'  >";
-			$sfsi_anchor_div_style = "";
-			if ($sfsi_responsive_icons["settings"]["edge_type"] === "Round") {
-				$sfsi_anchor_div_style .= " border-radius:";
-				if ($sfsi_responsive_icons["settings"]["edge_radius"] !== "") {
-					$sfsi_anchor_div_style .= $sfsi_responsive_icons["settings"]["edge_radius"] . 'px; ';
-				} else {
-					$sfsi_anchor_div_style .= '0px; ';
-				}
-			}
-
-			ob_start();
-
-			if ($couter_display != "none") { ?>
-			<div class="sfsi_responsive_icons_count sfsi_<?php echo ($icon_width_type == "Fully responsive" ? 'responsive' : 'fixed'); ?>_count_container sfsi_<?php echo strtolower($sfsi_responsive_icons['settings']['icon_size']); ?>_button" style='display:<?php echo $couter_display; ?>;text-align:center; background-color:<?php echo $sfsi_responsive_icons['settings']['counter_bg_color']; ?>;color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>; <?php echo $sfsi_anchor_div_style; ?>;'>
-				<h3 style="color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>;"><?php echo $count; ?></h3>
-				<h6 style="color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>;"><?php echo $sfsi_responsive_icons['settings']["share_count_text"]; ?></h6>
-			</div>
-		<?php }
-			$icons .= ob_get_contents();
-			ob_end_clean();
-			$icons .= "<div class='sfsi_icons_container " . $counter_class . " sfsi_" . strtolower($sfsi_responsive_icons['settings']['icon_size']) . "_button_container sfsi_icons_container_box_" . ($icon_width_type !== "Fixed icon width" ? "fully" : 'fixed') . "_container ' style='" . ($icon_width_type !== "Fixed icon width" ? "width:100%;display:flex" : 'width:auto') . "; text-align:center;' >";
-			$socialObj = new sfsi_SocialHelper();
-			//styles
-			$sfsi_anchor_style = "";
-			if ($sfsi_responsive_icons["settings"]["text_align"] == "Centered") {
-				$sfsi_anchor_style .= 'text-align:center;';
-			}
-			if ($sfsi_responsive_icons["settings"]["margin"] !== "") {
-				$sfsi_anchor_style .= 'margin-left:' . $sfsi_responsive_icons["settings"]["margin"] . "px; ";
-				// $sfsi_anchor_style.='margin-bottom:'.$sfsi_responsive_icons["settings"]["margin"]."px; ";
-			}
-			//styles
-
-			if ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width") {
-				$sfsi_anchor_div_style .= 'width:' . $sfsi_responsive_icons['settings']['icon_width_size'] . 'px;';
-			} else {
-				$sfsi_anchor_style .= " flex-basis:100%;";
-
-				// If the current URL has param 'page=sfsi-options' then set the width to 100% else set it to auto.
-				if ( isset( $_GET['page'] ) && 'sfsi-options' === strtolower($_GET['page']) ) {
-					$sfsi_anchor_div_style .= 'width:100%;';
-				} else {
-					$sfsi_anchor_div_style .= 'width:auto;';
-				}
-			}
-
-			foreach ($sfsi_responsive_icons['default_icons'] as $icon => $icon_config) {
-
-				if ( $icon_config['active'] == 'yes' || is_admin() ) {
-
-					switch ($icon) {
-						case "facebook":
-							$share_url = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($current_url);
-							break;
-						case "Twitter":
-							$twitter_text = $share_url = "https://twitter.com/intent/tweet?text=" . urlencode($twitter_text) . "&url=" . urlencode($current_url);
-							break;
-						case "Follow":
-							$share_url = (isset($option2['sfsi_email_url']))
-								? $option2['sfsi_email_url']
-								: 'https://follow.it/now';
-							break;
-						case "Pinterest":
-								$share_url = 'https://www.pinterest.com/pin/create/link/?url=' . urlencode($current_url);
-							break;
-					}
-					$icons .= "<a " . sfsi_checkNewWindow() . " href='" . ($icon_config['url'] == "" ? $share_url : $icon_config['url']) . "' style='" . ($icon_config['active'] == 'yes' ? ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width" ? 'display:inline-flex' : 'display:block') : 'display:none') . ";" . $sfsi_anchor_style . "' class=" . ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width" ? 'sfsi_responsive_fixed_width' : 'sfsi_responsive_fluid') . " >";
-						$icons .= "<div class='sfsi_responsive_icon_item_container sfsi_responsive_icon_" . strtolower($icon) . "_container sfsi_" . strtolower($sfsi_responsive_icons['settings']['icon_size']) . "_button " . ($sfsi_responsive_icons['settings']['style'] == "Gradient" ? 'sfsi_responsive_icon_gradient' : '') . (" sfsi_" . (strtolower($sfsi_responsive_icons['settings']['text_align']) == "centered" ? 'centered' : 'left-align') . "_icon") . "' style='" . $sfsi_anchor_div_style . " ' >";
-							$icons .= "<img style='max-height: 25px;display:unset;margin:0' class='sfsi_wicon' alt='" . $icon . "' src='" . SFSI_PLUGURL . "images/responsive-icon/" . $icon . ('Follow' === $icon ? '.png' : '.svg') . "'>";
-							$icons .= "<span style='color:#fff'>" . ($icon_config["text"]) . "</span>";
-						$icons .= "</div>";
-					$icons .= "</a>";
-				}
-			}
-			$icons .= "</div></div></div><!--end responsive_icons-->";
-			return $icons;
-		endif;
+	/* Remove if hide from Admin panel */
+	if ( isset( $sfsi_section9["sfsi_responsive_icons_after_post_on_taxonomy"] ) && $sfsi_section9["sfsi_responsive_icons_after_post_on_taxonomy"] != "yes" ) {
+		return $content;
 	}
+
+	$content = $content . sfsi_social_responsive_buttons(null, $sfsi_section6);
+
+	return $content;
+}
+
+/* update footer for frontend and admin both */
+add_action( 'in_admin_footer', 'sfsi_footer_script' );
+add_action( 'wp_footer', 'sfsi_footer_script' );
+
+add_action( 'wp_footer', 'sfsi_check_PopUp' );
+add_action( 'wp_footer', 'sfsi_frontFloter' );
+add_action( 'wp_footer', 'sfsi_sticky_bar_front' );
+
+/* Frontend Popup for Administrator user */
+add_action( 'wp_footer', 'sfsi_forum_notification_popup' );
+
+/* ping to vendor site on updation of new post */
+
+//<---------------------* Responsive icons *----------------->
+function sfsi_social_responsive_buttons($content, $option6, $server_side = false)
+{
+	global $wp;
+	$count = 60;
+
+	if (((isset($option6["sfsi_display_button_type"]) && $option6["sfsi_display_button_type"] == "responsive_button")) || $server_side) :
+		$option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
+		$option3 = maybe_unserialize(get_option('sfsi_section3_options', false));
+		$option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+		$icons = "";
+		$sfsi_responsive_icons = (isset($option6["sfsi_responsive_icons"]) ? $option6["sfsi_responsive_icons"] : null);
+		$current_url = in_the_loop() ? add_query_arg($_GET ? $_GET : array(), get_permalink()) : add_query_arg($wp->query_vars, home_url($wp->request));
+		if (is_null($sfsi_responsive_icons)) {
+			if ($server_side) {
+				$sfsi_responsive_icons = array(
+					"default_icons" => array(
+						"facebook" => array( "active" => "yes", "text" => "Share on Facebook", "url" => "" ),
+						"Twitter" => array( "active" => "yes", "text" => "Post on X", "url" => "" ),
+						"Follow" => array( "active" => "yes", "text" => "Follow us", "url" => "" ),
+						"Pinterest" => array( "active" => "yes", "text" => "Save", "url" => "" ),
+					),
+					"custom_icons" => array(),
+					"settings" => array(
+						"icon_size" => "Medium",
+						"icon_width_type" => "Fully responsive",
+						"icon_width_size" => 240,
+						"edge_type" => "Round",
+						"edge_radius" => 5,
+						"style" => "Gradient",
+						"margin" => 10,
+						"text_align" => "Centered",
+						"show_count" => "no",
+						"counter_color" => "#aaaaaa",
+						"counter_bg_color" => "#fff",
+						"share_count_text" => "SHARES",
+						"margin_above" => 10,
+						"margin_below" => 10,
+
+					)
+				);
+			} else {
+				return ""; // dont return anything if options not set;
+			}
+		}
+
+		$twitter_text = isset($option2['sfsi_twitter_aboutPageText']) && !empty($option2['sfsi_twitter_aboutPageText']) ? $option2['sfsi_twitter_aboutPageText'] : false;
+
+		$icon_width_type = $sfsi_responsive_icons["settings"]["icon_width_type"];
+		$margin_above = $sfsi_responsive_icons["settings"]["margin_above"];
+		$margin_below = $sfsi_responsive_icons["settings"]["margin_below"];
+
+		$show_count = $sfsi_responsive_icons["settings"]["show_count"];
+
+		$couter_display = "none";
+		if ( $option4['sfsi_display_counts'] == 'yes' && $option4['sfsi_responsive_share_count'] == 'yes' && $show_count == 'yes' ) {
+			$counter_class = "sfsi_responsive_with_counter_icons";
+			$couter_display = "inline-block";
+			$counts = sfsi_getCounts(true);
+			$count = 0;
+			if (isset($counts['email_count'])) {
+				$count = (int) ($counts['email_count']) + $count;
+			}
+			if (isset($counts['fb_count'])) {
+				$count = (int) ($counts['fb_count']) + $count;
+			}
+			if (isset($counts['twitter_count'])) {
+				$count = (int) ($counts['twitter_count']) + $count;
+			}
+
+		} else {
+			$counter_class = "sfsi_responsive_without_counter_icons";
+		}
+
+		/* Add mouseOve effect */
+		$mouse_hover_effect = '';
+		if ( isset( $option3['sfsi_mouseOver'] ) && 'yes' === $option3['sfsi_mouseOver'] && !is_admin() ) {
+			$mouse_hover_effect .= ' sfsi-mouseOver-effect sfsi-mouseOver-effect-';
+			$mouse_hover_effect .= isset( $option3["sfsi_mouseOver_effect"] ) ? $option3["sfsi_mouseOver_effect"] : 'fade_in';
+		}
+
+		$icons .= "<div class='sfsiaftrpstwpr'><div class='sfsi_responsive_icons". esc_attr( $mouse_hover_effect )."' style='display:block;margin-top:" . $margin_above . "px; margin-bottom: " . $margin_below . "px; " . ($icon_width_type == "Fully Responsive" ? "width:100%;display:flex; " : 'width:100%') . "' data-icon-width-type='" . $icon_width_type . "' data-icon-width-size='" . $sfsi_responsive_icons["settings"]['icon_width_size'] . "' data-edge-type='" . $sfsi_responsive_icons["settings"]['edge_type'] . "' data-edge-radius='" . $sfsi_responsive_icons["settings"]['edge_radius'] . "'  >";
+		$sfsi_anchor_div_style = "";
+		if ($sfsi_responsive_icons["settings"]["edge_type"] === "Round") {
+			$sfsi_anchor_div_style .= " border-radius:";
+			if ($sfsi_responsive_icons["settings"]["edge_radius"] !== "") {
+				$sfsi_anchor_div_style .= $sfsi_responsive_icons["settings"]["edge_radius"] . 'px; ';
+			} else {
+				$sfsi_anchor_div_style .= '0px; ';
+			}
+		}
+
+		ob_start();
+
+		if ($couter_display != "none") { ?>
+		<div class="sfsi_responsive_icons_count sfsi_<?php echo ($icon_width_type == "Fully responsive" ? 'responsive' : 'fixed'); ?>_count_container sfsi_<?php echo strtolower($sfsi_responsive_icons['settings']['icon_size']); ?>_button" style='display:<?php echo $couter_display; ?>;text-align:center; background-color:<?php echo $sfsi_responsive_icons['settings']['counter_bg_color']; ?>;color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>; <?php echo $sfsi_anchor_div_style; ?>;'>
+			<h3 style="color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>;"><?php echo $count; ?></h3>
+			<h6 style="color:<?php echo $sfsi_responsive_icons['settings']['counter_color']; ?>;"><?php echo $sfsi_responsive_icons['settings']["share_count_text"]; ?></h6>
+		</div>
+	<?php }
+		$icons .= ob_get_contents();
+		ob_end_clean();
+		$icons .= "<div class='sfsi_icons_container " . $counter_class . " sfsi_" . strtolower($sfsi_responsive_icons['settings']['icon_size']) . "_button_container sfsi_icons_container_box_" . ($icon_width_type !== "Fixed icon width" ? "fully" : 'fixed') . "_container ' style='" . ($icon_width_type !== "Fixed icon width" ? "width:100%;display:flex" : 'width:auto') . "; text-align:center;' >";
+		$socialObj = new sfsi_SocialHelper();
+		//styles
+		$sfsi_anchor_style = "";
+		if ($sfsi_responsive_icons["settings"]["text_align"] == "Centered") {
+			$sfsi_anchor_style .= 'text-align:center;';
+		}
+		if ($sfsi_responsive_icons["settings"]["margin"] !== "") {
+			$sfsi_anchor_style .= 'margin-left:' . $sfsi_responsive_icons["settings"]["margin"] . "px; ";
+			// $sfsi_anchor_style.='margin-bottom:'.$sfsi_responsive_icons["settings"]["margin"]."px; ";
+		}
+		//styles
+
+		if ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width") {
+			$sfsi_anchor_div_style .= 'width:' . $sfsi_responsive_icons['settings']['icon_width_size'] . 'px;';
+		} else {
+			$sfsi_anchor_style .= " flex-basis:100%;";
+
+			// If the current URL has param 'page=sfsi-options' then set the width to 100% else set it to auto.
+			if ( isset( $_GET['page'] ) && 'sfsi-options' === strtolower($_GET['page']) ) {
+				$sfsi_anchor_div_style .= 'width:100%;';
+			} else {
+				$sfsi_anchor_div_style .= 'width:auto;';
+			}
+		}
+
+		foreach ($sfsi_responsive_icons['default_icons'] as $icon => $icon_config) {
+
+			if ( $icon_config['active'] == 'yes' || is_admin() ) {
+
+				switch ($icon) {
+					case "facebook":
+						$share_url = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($current_url);
+						break;
+					case "Twitter":
+						$twitter_text = $share_url = "https://twitter.com/intent/tweet?text=" . urlencode($twitter_text) . "&url=" . urlencode($current_url);
+						break;
+					case "Follow":
+						$share_url = (isset($option2['sfsi_email_url']))
+							? $option2['sfsi_email_url']
+							: 'https://follow.it/now';
+						break;
+					case "Pinterest":
+							$share_url = 'https://www.pinterest.com/pin/create/link/?url=' . urlencode($current_url);
+						break;
+				}
+				$icons .= "<a " . sfsi_checkNewWindow() . " href='" . ($icon_config['url'] == "" ? $share_url : $icon_config['url']) . "' style='" . ($icon_config['active'] == 'yes' ? ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width" ? 'display:inline-flex' : 'display:block') : 'display:none') . ";" . $sfsi_anchor_style . "' class=" . ($sfsi_responsive_icons['settings']['icon_width_type'] === "Fixed icon width" ? 'sfsi_responsive_fixed_width' : 'sfsi_responsive_fluid') . " >";
+					$icons .= "<div class='sfsi_responsive_icon_item_container sfsi_responsive_icon_" . strtolower($icon) . "_container sfsi_" . strtolower($sfsi_responsive_icons['settings']['icon_size']) . "_button " . ($sfsi_responsive_icons['settings']['style'] == "Gradient" ? 'sfsi_responsive_icon_gradient' : '') . (" sfsi_" . (strtolower($sfsi_responsive_icons['settings']['text_align']) == "centered" ? 'centered' : 'left-align') . "_icon") . "' style='" . $sfsi_anchor_div_style . " ' >";
+						$icons .= "<img style='max-height: 25px;display:unset;margin:0' class='sfsi_wicon' alt='" . $icon . "' src='" . SFSI_PLUGURL . "images/responsive-icon/" . $icon . ('Follow' === $icon ? '.png' : '.svg') . "'>";
+						$icons .= "<span style='color:#fff'>" . ($icon_config["text"]) . "</span>";
+					$icons .= "</div>";
+				$icons .= "</a>";
+			}
+		}
+		$icons .= "</div></div></div><!--end responsive_icons-->";
+		return $icons;
+	endif;
+}
