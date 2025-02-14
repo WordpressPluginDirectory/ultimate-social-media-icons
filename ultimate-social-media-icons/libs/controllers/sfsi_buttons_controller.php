@@ -1356,8 +1356,7 @@ function sfsi_getCounts($for_resposive = false)
         if ($sfsi_section4_options['sfsi_youtube_countsFrom'] == "subscriber") {
             if (isset( $sfsi_section4_options['sfsi_youtube_user'] )) {
                 $youtube_user = $sfsi_section4_options['sfsi_youtube_user'];
-                $followers = $socialObj->sfsi_get_youtube($youtube_user);
-                $scounts['youtube_count'] = $socialObj->format_num($followers);
+                $scounts['youtube_count'] = $socialObj->sfsi_get_youtube($youtube_user);
             } else {
                 $scounts['youtube_count'] = 01;
             }

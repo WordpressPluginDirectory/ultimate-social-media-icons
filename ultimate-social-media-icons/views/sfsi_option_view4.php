@@ -599,7 +599,7 @@ $hide = "display:none;";
                 <ul>
                     <li><input name="sfsi_youtube_countsFrom" type="radio" value="subscriber" <?php echo ($option4['sfsi_youtube_countsFrom'] == 'subscriber') ?  'checked="true"' : ''; ?> class="styled" /><?php _e("Retrieve the number of Subscribers",'ultimate-social-media-icons') ?></li>
                     <li class="youtube_options" style="<?php echo (!isset($option4['sfsi_youtube_countsFrom']) || empty($option4['sfsi_youtube_countsFrom']) || $option4['sfsi_youtube_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>">
-                        <div>
+                        <div style="display: none!important;">
                             <label><?php _e("Enter Youtube User name:",'ultimate-social-media-icons') ?></label>
                             <input name="sfsi_youtube_user" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user'] != '') ? esc_attr($option4['sfsi_youtube_user']) : ''; ?>" />
                         </div>

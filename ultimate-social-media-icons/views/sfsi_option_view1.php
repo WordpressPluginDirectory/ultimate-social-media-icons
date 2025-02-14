@@ -230,7 +230,7 @@ $option1['sfsi_mastodon_display'] = isset( $option1['sfsi_mastodon_display'] ) ?
                 <p><span><?php _e('It depends: ', 'ultimate-social-media-icons'); ?></span>
                     <?php
                     _e('You want people to rate, discuss or comment on your website or products? ','ultimate-social-media-icons');
-                    echo '<a href="https://rateitall.com/">';
+                    echo '<a target="_blank" href="https://rateitall.com/">';
                     _e('Create a topic page on RateItAll', 'ultimate-social-media-icons');
                     echo '</a>';
                     _e(' and link to it.', 'ultimate-social-media-icons'); ?>
@@ -254,7 +254,7 @@ $option1['sfsi_mastodon_display'] = isset( $option1['sfsi_mastodon_display'] ) ?
 
                 <p><span><?php _e("It depends:", 'ultimate-social-media-icons'); ?></span>
                     <?php _e("If you're a charity or contributor for good causes, link here to your profile on " , 'ultimate-social-media-icons'); ?>
-                    <?php echo '<a href="https://increasinghappiness.org/">';
+                    <?php echo '<a target="_blank" href="https://increasinghappiness.org/">';
                     _e(' IncreasingHappiness.org. ', 'ultimate-social-media-icons');
                     echo '</a>';?>
                 </p>

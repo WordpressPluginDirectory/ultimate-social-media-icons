@@ -94,7 +94,7 @@ function sfsi_social_buttons_below( $content ) {
 						$mouse_hover_effect .= ' sfsi-mouseOver-effect sfsi-mouseOver-effect-';
 						$mouse_hover_effect .= isset( $option3["sfsi_mouseOver_effect"] ) ? $option3["sfsi_mouseOver_effect"] : 'fade_in';
 					}
-					$icons .= "<div class='sfsi_Sicons sfsi_Sicons_position_".$float. esc_attr( $mouse_hover_effect )."' style='float: none; vertical-align: middle; text-align:" . $float . "'><div style='margin:0px 8px 0px 0px; line-height: 24px'><span>" . $txt . "</span></div>";
+					$icons .= "<div class='sfsi_Sicons sfsi_Sicons_position_".$float. esc_attr( $mouse_hover_effect )."' style='float: $float; vertical-align: middle; text-align:" . $float . "'><div style='margin:0px 8px 0px 0px; line-height: 24px'><span>" . $txt . "</span></div>";
 
 					//adding wrapper div
 					$icons .= "<div class='sfsi_socialwpr'>";
@@ -242,7 +242,7 @@ function sfsi_twitterlike($permalink, $show_count, $rectangular_icon = false)
 
 	// $tweet_icon = SFSI_PLUGURL . 'images/share_icons/Twitter_Tweet/en_US_Tweet.svg';
 	// $icons = "<div class='sf_twiter' style='display: inline-block;vertical-align: middle;width: auto;'>
-	// 				<a href='https://twitter.com/intent/tweet?text=" . urlencode($twitter_text).' '.$permalink. "'style='display:inline-block' >
+	// 				<a href='https://x.com/intent/post?text=" . urlencode($twitter_text).' '.$permalink. "'style='display:inline-block' >
 	// 					<img data-pin-nopin= true class='sfsi_premium_wicon' src='" . $tweet_icon . "' alt='Tweet' title='Tweet' >
 	// 				</a>
 	// 				<span class='bot_no'>".$count_html."</span>
@@ -737,7 +737,7 @@ function sfsi_social_responsive_buttons($content, $option6, $server_side = false
 						$share_url = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($current_url);
 						break;
 					case "Twitter":
-						$twitter_text = $share_url = "https://twitter.com/intent/tweet?text=" . urlencode($twitter_text) . "&url=" . urlencode($current_url);
+						$twitter_text = $share_url = "https://x.com/intent/post?text=" . urlencode($twitter_text) . "&url=" . urlencode($current_url);
 						break;
 					case "Follow":
 						$share_url = (isset($option2['sfsi_email_url']))

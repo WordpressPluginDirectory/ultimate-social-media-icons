@@ -24,6 +24,10 @@ class Sfsi_Widget extends WP_Widget
 
 	function widget($args, $instance)
 	{
+
+
+
+
 		$before_title = isset($args["before_title"]) ? $args["before_title"] : '';
 		$after_title = isset($args["after_title"]) ? $args["after_title"] : '';
 		$before_widget = isset($args["before_widget"]) ? $args["before_widget"] : '';
@@ -108,6 +112,13 @@ class Sfsi_Widget extends WP_Widget
 /* register widget to wordpress */
 function register_sfsi_widgets()
 {
+	$sfsi_section9 		   = maybe_unserialize(get_option('sfsi_section9_options', false));
+
+	if ( empty( $sfsi_section9['sfsi_show_via_widget'] ) || $sfsi_section9['sfsi_show_via_widget'] == 'no' ) {
+		unregister_widget('sfsi_widget');
+		return;
+	}
+
 	register_widget('sfsi_widget');
 }
 add_action('widgets_init', 'register_sfsi_widgets');
@@ -483,7 +494,7 @@ function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 			$styleMargin .= !empty($sfsi_section9['sfsi_icons_floatMargin_right']) ? "margin-right:" . $sfsi_section9['sfsi_icons_floatMargin_right'] . "px;" : "";
 		}
 
-		
+
 		/*$icons_float = isset($styleMargin) && !empty($styleMargin) ? '<style type="text/css">#sfsi_floater { ' . $styleMargin . ' }</style>' : '';*/
 		$icons_float .= '<div class="norm_row sfsi_wDiv sfsi_floater_position_' . $sfsi_icons_floatPosition . '" id="sfsi_floater" style="z-index: 9999;width:' . $width . 'px;text-align:' . $icons_alignment . ';' . $position . $styleMargin . '">';
 		$icons_float .= $icons;
@@ -885,7 +896,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$follow_me  = isset($sfsi_section2_options['sfsi_twitter_followme']) && !empty($sfsi_section2_options['sfsi_twitter_followme']) ? $sfsi_section2_options['sfsi_twitter_followme'] : false;
 
 			$about_page = isset($sfsi_section2_options['sfsi_twitter_aboutPage']) && !empty($sfsi_section2_options['sfsi_twitter_aboutPage']) ? $sfsi_section2_options['sfsi_twitter_aboutPage'] : false;
-      
+
 			$url = esc_url($url);
 
 			if ($follow_me == "yes" || $about_page == "yes") {
@@ -1025,8 +1036,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				if ($sfsi_section4_options['sfsi_youtube_countsFrom'] == "manual") {
 					$counts = $socialObj->format_num($sfsi_section4_options['sfsi_youtube_manualCounts']);
 				} else if ($sfsi_section4_options['sfsi_youtube_countsFrom'] == "subscriber") {
-					$followers = $socialObj->sfsi_get_youtube($youtube_user);
-					$counts = $socialObj->format_num($followers);
+                    $counts = $socialObj->sfsi_get_youtube($youtube_user);
 					if (empty($counts)) {
 						$counts = (string) "0";
 					}
@@ -2360,7 +2370,7 @@ function sfsi_sticky_bar_front()
 					break;
 				case "Twitter":
 					$twitter_text = isset($option2['sfsi_twitter_aboutPageText']) && !empty($option2['sfsi_twitter_aboutPageText']) ? $option2['sfsi_twitter_aboutPageText'] : false;
-					$share_url = "https://twitter.com/intent/tweet?text=" . urlencode($twitter_text) . "&url=" . urlencode($sfsi_current_url);
+					$share_url = "https://x.com/intent/post?text=" . urlencode($twitter_text) . "&url=" . urlencode($sfsi_current_url);
 					break;
 				case "Follow":
 					$share_url = (isset($option2['sfsi_email_url'])) ? $option2['sfsi_email_url'] : 'https://specificfeeds.com/follow';
