@@ -86,7 +86,7 @@
           $tmp_name = explode(DIRECTORY_SEPARATOR, substr($tmp_slug, strlen($tmp_root)));
 
           // Make the "probably" slug name
-          $this->page = sanitize_text_field($_GET['page']);
+          $this->page = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
           $this->slug = $tmp_name[0];
           $this->root = $tmp_root . $this->slug;
 

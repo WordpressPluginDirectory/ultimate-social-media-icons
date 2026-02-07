@@ -162,10 +162,12 @@ function sfsi_FrontPopupDiv()
         $sfsi_section5['sfsi_pinterestIcon_order'] => 'pinterest',
         $sfsi_section5['sfsi_linkedinIcon_order'] => 'linkedin',
         $sfsi_section5['sfsi_instagramIcon_order'] => 'instagram',
+        $sfsi_section5['sfsi_threadsIcon_order'] => 'threads',
         $sfsi_section5['sfsi_riaIcon_order'] => 'ria',
         $sfsi_section5['sfsi_inhaIcon_order'] => 'inha',
         $sfsi_section5['sfsi_telegramIcon_order'] => 'telegram',
         $sfsi_section5['sfsi_vkIcon_order'] => 'vk',
+        $sfsi_section5['sfsi_blueskyIcon_order'] => 'bluesky',
         $sfsi_section5['sfsi_okIcon_order'] => 'ok',
         $sfsi_section5['sfsi_weiboIcon_order'] => 'weibo',
         $sfsi_section5['sfsi_wechatIcon_order'] => 'wechat',
@@ -245,6 +247,9 @@ function sfsi_FrontPopupDiv()
             case 'instagram':
                 if ($sfsi_section1_options['sfsi_instagram_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('instagram', 1) . "</li>";
                 break;
+            case 'threads':
+                if ($sfsi_section1_options['sfsi_threads_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('threads', 1) . "</li>";
+                break;
             case 'ria':
                 if ($sfsi_section1_options['sfsi_ria_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('ria', 1) . "</li>";
                 break;
@@ -256,6 +261,9 @@ function sfsi_FrontPopupDiv()
                 break;
             case 'vk':
                 if ($sfsi_section1_options['sfsi_vk_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('vk', 1) . "</li>";
+                break;
+            case 'bluesky':
+                if ($sfsi_section1_options['sfsi_bluesky_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('bluesky', 1) . "</li>";
                 break;
             case 'ok':
                 if ($sfsi_section1_options['sfsi_ok_display'] == 'yes')    $icons .= "<li>" . sfsi_prepairIcons('ok', 1) . "</li>";

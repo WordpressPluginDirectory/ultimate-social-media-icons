@@ -8,6 +8,12 @@ function update_sharing_settings() {
     if(!current_user_can('manage_options')){ echo json_encode(array('res'=>'not allowed'));die(); }
 	
 	$option5 = maybe_unserialize(get_option('sfsi_section5_options',false));
+
+	// Ensure $option5 is an array before accessing/modifying it (PHP 8.x compatibility)
+	if (!is_array($option5)) {
+		$option5 = array();
+	}
+
 	$option5['sfsi_custom_social_hide'] = sanitize_text_field($_POST['sfsi_custom_social_hide']);
 	update_option('sfsi_section5_options',serialize($option5));
 	echo true;

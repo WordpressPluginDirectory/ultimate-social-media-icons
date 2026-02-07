@@ -309,6 +309,12 @@ function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 	if (!isset($sfsi_section5['sfsi_mastodonIcon_order'])) {
 		$sfsi_section5['sfsi_mastodonIcon_order']    = '21';
 	}
+	if (!isset($sfsi_section5['sfsi_threadsIcon_order'])) {
+		$sfsi_section5['sfsi_threadsIcon_order']    = '30';
+	}
+	if (!isset($sfsi_section5['sfsi_blueskyIcon_order'])) {
+		$sfsi_section5['sfsi_blueskyIcon_order']    = '31';
+	}
 
 	$icons_order = array(
 		'0' => '',
@@ -320,10 +326,12 @@ function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 		$sfsi_section5['sfsi_pinterestIcon_order'] => 'pinterest',
 		$sfsi_section5['sfsi_linkedinIcon_order'] => 'linkedin',
 		$sfsi_section5['sfsi_instagramIcon_order'] => 'instagram',
+		$sfsi_section5['sfsi_threadsIcon_order'] => 'threads',
 		$sfsi_section5['sfsi_riaIcon_order'] => 'ria',
 		$sfsi_section5['sfsi_inhaIcon_order'] => 'inha',
 		$sfsi_section5['sfsi_telegramIcon_order'] => 'telegram',
 		$sfsi_section5['sfsi_vkIcon_order'] => 'vk',
+		$sfsi_section5['sfsi_blueskyIcon_order'] => 'bluesky',
 		$sfsi_section5['sfsi_okIcon_order'] => 'ok',
 		$sfsi_section5['sfsi_weiboIcon_order'] => 'weibo',
 		$sfsi_section5['sfsi_wechatIcon_order'] => 'wechat',
@@ -404,6 +412,9 @@ function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 			case 'instagram':
 				if (isset($sfsi_section1_options['sfsi_instagram_display']) && $sfsi_section1_options['sfsi_instagram_display'] == 'yes')    $icons .= sfsi_prepairIcons('instagram');
 				break;
+			case 'threads':
+				if (isset($sfsi_section1_options['sfsi_threads_display']) && $sfsi_section1_options['sfsi_threads_display'] == 'yes')    $icons .= sfsi_prepairIcons('threads');
+				break;
             case 'ria':
                 if (isset($sfsi_section1_options['sfsi_ria_display']) && $sfsi_section1_options['sfsi_ria_display'] == 'yes')    $icons .= sfsi_prepairIcons('ria');
                 break;
@@ -415,6 +426,9 @@ function sfsi_check_visiblity($isFloater = 0, $shortcode = 0)
 				break;
 			case 'vk':
 				if (isset($sfsi_section1_options['sfsi_vk_display']) && $sfsi_section1_options['sfsi_vk_display'] == 'yes')    $icons .= sfsi_prepairIcons('vk');
+				break;
+			case 'bluesky':
+				if (isset($sfsi_section1_options['sfsi_bluesky_display']) && $sfsi_section1_options['sfsi_bluesky_display'] == 'yes')    $icons .= sfsi_prepairIcons('bluesky');
 				break;
 			case 'ok':
 				if (isset($sfsi_section1_options['sfsi_ok_display']) && $sfsi_section1_options['sfsi_ok_display'] == 'yes')    $icons .= sfsi_prepairIcons('ok');
@@ -1220,6 +1234,58 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				}
 			}
 			break;
+		case "threads":
+			$toolClass = "threads_tool_bdr";
+			$arrow_class = "bot_pintst_arow";
+
+			if ($sfsi_section2_options['sfsi_threadsShare_option'] == "yes") {
+				$url = "https://www.threads.net/intent/post?text=Check%20out%20this%20amazing%20article!&url={$current_url}";
+			}
+
+			//Giving alternative text to image
+			if ( !empty($sfsi_section5_options['sfsi_threads_MouseOverText']) ) {
+				$alt_text = $sfsi_section5_options['sfsi_threads_MouseOverText'];
+			} else {
+				$alt_text = "THREADS";
+			}
+
+			//Custom Skin Support {Monad}
+			if ($active_theme == 'custom_support') {
+				if (get_option("threads_skin")) {
+					$icon = get_option("threads_skin");
+				} else {
+					$active_theme = 'default';
+					$icons_baseUrl = SFSI_PLUGURL . "images/icons_theme/default/";
+					$icon = $icons_baseUrl . $active_theme . "_threads.png";
+				}
+			} else {
+				$icon = $icons_baseUrl . $active_theme . "_threads.png";
+			}
+
+			/* For Flat icons bg color */
+			if ($active_theme == 'flat') {
+				if (isset($sfsi_section3_options['sfsi_threads_bgColor']) && $sfsi_section3_options['sfsi_threads_bgColor'] != '') {
+					$sfsi_icon_bgColor = $sfsi_section3_options['sfsi_threads_bgColor'];
+				} else {
+					$sfsi_icon_bgColor = '#252525';
+				}
+			}
+
+			$cFrom  = isset($sfsi_section4_options['sfsi_threads_countsFrom']) && !empty($sfsi_section4_options['sfsi_threads_countsFrom']) ? $sfsi_section4_options['sfsi_threads_countsFrom'] : false;
+
+			$disp  = isset($sfsi_section4_options['sfsi_threads_countsDisplay']) && !empty($sfsi_section4_options['sfsi_threads_countsDisplay']) ? $sfsi_section4_options['sfsi_threads_countsDisplay'] : false;
+
+			$dcount  = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
+			$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
+			/* fecth no of counts if active in admin section */
+			if ($disp == "yes" && $dcount == "yes" && $display_round_counts == "yes") {
+				if ($cFrom == "manual") {
+					$counts = $socialObj->format_num($sfsi_section4_options['sfsi_threads_manualCounts']);
+				}
+			}
+
+
+			break;
 
 		case "telegram":
 			$toolClass = "telegram_tool_bdr";
@@ -1377,6 +1443,56 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 					$sfsi_icon_bgColor = $sfsi_section3_options['sfsi_vk_bgColor'];
 				} else {
 					$sfsi_icon_bgColor = '#4E77A2';
+				}
+			}
+
+			break;
+		case "bluesky":
+			$toolClass = "bluesky_tool_bdr";
+			$arrow_class = "bot_pintst_arow";
+
+			if ($sfsi_section2_options['sfsi_blueskyShare_option'] == "yes") {
+				$url = "https://bsky.app/intent/compose?text=Check%20out%20this%20amazing%20article!%20{$current_url}";
+			}
+			//Giving alternative text to image
+			if ( !empty($sfsi_section5_options['sfsi_bluesky_MouseOverText']) ) {
+				$alt_text = $sfsi_section5_options['sfsi_bluesky_MouseOverText'];
+			} else {
+				$alt_text = "BLUESKY";
+			}
+
+			//Custom Skin Support {Monad}
+			if ($active_theme == 'custom_support') {
+				if (get_option("bluesky_skin")) {
+					$icon = get_option("bluesky_skin");
+				} else {
+					$active_theme = 'default';
+					$icons_baseUrl = SFSI_PLUGURL . "images/icons_theme/default/";
+					$icon = $icons_baseUrl . $active_theme . "_bluesky.png";
+				}
+			} else {
+				$icon = $icons_baseUrl . $active_theme . "_bluesky.png";
+			}
+
+			/* For Flat icons bg color */
+			if ($active_theme == 'flat') {
+				if (isset($sfsi_section3_options['sfsi_bluesky_bgColor']) && $sfsi_section3_options['sfsi_bluesky_bgColor'] != '') {
+					$sfsi_icon_bgColor = $sfsi_section3_options['sfsi_bluesky_bgColor'];
+				} else {
+					$sfsi_icon_bgColor = '#1185fe';
+				}
+			}
+
+			$cFrom  = isset($sfsi_section4_options['sfsi_bluesky_countsFrom']) && !empty($sfsi_section4_options['sfsi_bluesky_countsFrom']) ? $sfsi_section4_options['sfsi_bluesky_countsFrom'] : false;
+
+			$disp  = isset($sfsi_section4_options['sfsi_bluesky_countsDisplay']) && !empty($sfsi_section4_options['sfsi_bluesky_countsDisplay']) ? $sfsi_section4_options['sfsi_bluesky_countsDisplay'] : false;
+
+			$dcount  = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
+			$display_round_counts = isset($sfsi_section4_options['sfsi_round_counts']) && !empty($sfsi_section4_options['sfsi_round_counts']) ? $sfsi_section4_options['sfsi_round_counts'] : false;
+			/* fecth no of counts if active in admin section */
+			if ($disp == "yes" && $dcount == "yes" && $display_round_counts == "yes") {
+				if ($cFrom == "manual") {
+					$counts = $socialObj->format_num($sfsi_section4_options['sfsi_bluesky_manualCounts']);
 				}
 			}
 

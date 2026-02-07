@@ -12,6 +12,8 @@ $option2['sfsi_facebookPage_option'] = isset( $option2['sfsi_facebookPage_option
 $option2['sfsi_facebookPage_url'] = isset( $option2['sfsi_facebookPage_url'] ) ? esc_url( $option2['sfsi_facebookPage_url'] ) : '';
 $option2['sfsi_facebookLike_option'] = isset( $option2['sfsi_facebookLike_option'] ) ? sanitize_text_field( $option2['sfsi_facebookLike_option'] ) : '';
 $option2['sfsi_facebookShare_option'] = isset( $option2['sfsi_facebookShare_option'] ) ? sanitize_text_field( $option2['sfsi_facebookShare_option'] ) : '';
+$option2['sfsi_threadsShare_option'] = isset( $option2['sfsi_threadsShare_option'] ) ? sanitize_text_field( $option2['sfsi_threadsShare_option'] ) : '';
+$option2['sfsi_blueskyShare_option'] = isset( $option2['sfsi_blueskyShare_option'] ) ? sanitize_text_field( $option2['sfsi_blueskyShare_option'] ) : '';
 $option2['sfsi_twitter_followme'] = isset( $option2['sfsi_twitter_followme'] ) ? sanitize_text_field( $option2['sfsi_twitter_followme'])
     : '';
 $option2['sfsi_twitter_followUserName'] = (isset($option2['sfsi_twitter_followUserName']))
@@ -407,6 +409,22 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
     </div>
     <!-- END INSTAGRAM ICON -->
 
+    <!-- THREADS ICON -->
+    <div class="row threads_section">
+        <h2 class="sfsicls_threads"><span><?php _e( 'Threads', 'ultimate-social-media-icons' ); ?></span></h2>
+        <div class="inr_cont">
+            <p><?php _e( 'When clicked on, users can share your content on their Threads.', 'ultimate-social-media-icons' ); ?></p>
+            <p class="radio_section fb_url extra_sp" style="display:flow-root; margin: 16px 0 23px;">
+                <input name="sfsi_threadsShare_option"
+					<?php echo ( $option2['sfsi_threadsShare_option'] == 'yes' ) ? 'checked="true"' : ''; ?>
+                       type="checkbox" value="yes" class="styled"/>
+                <label><?php _e( 'Share my blog with friends (on Threads)', 'ultimate-social-media-icons' ); ?></label>
+            </p>
+        </div>
+    </div>
+    <!-- END THREADS ICON -->
+
+
     <!-- RIA ICON -->
     <div class="row ria_section">
         <h2 class="sfsicls_ria"><?php _e( 'RateItAll', 'ultimate-social-media-icons' ); ?></h2>
@@ -630,6 +648,22 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
         </div>
     </div>
     <!-- END VK ICON -->
+
+    <!-- THREADS ICON -->
+    <div class="row bluesky_section">
+        <h2 class="sfsicls_bluesky"><span><?php _e( 'Bluesky', 'ultimate-social-media-icons' ); ?></span></h2>
+        <div class="inr_cont">
+            <p><?php _e( 'When clicked on, users can share your content on their Bluesky.', 'ultimate-social-media-icons' ); ?></p>
+            <p class="radio_section fb_url extra_sp" style="display:flow-root; margin: 16px 0 23px;">
+                <input name="sfsi_blueskyShare_option"
+					<?php echo ( $option2['sfsi_blueskyShare_option'] == 'yes' ) ? 'checked="true"' : ''; ?>
+                       type="checkbox" value="yes" class="styled"/>
+                <label><?php _e( 'Share my blog with friends (on Bluesky)', 'ultimate-social-media-icons' ); ?></label>
+            </p>
+        </div>
+    </div>
+    <!-- END THREADS ICON -->
+
     <!-- OK ICON -->
     <div class="row ok_section">
         <h2 class="sfsicls_ok"><?php _e( 'OK', 'ultimate-social-media-icons' ); ?></h2>

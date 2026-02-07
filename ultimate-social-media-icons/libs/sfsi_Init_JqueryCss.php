@@ -18,7 +18,7 @@ function theme_back_enqueue_script()
 	//including floating option css
 	$option9 = maybe_unserialize(get_option('sfsi_section9_options', false));
 
-	if ($option9['sfsi_disable_floaticons'] == 'yes') {
+	if (is_array($option9) && isset($option9['sfsi_disable_floaticons']) && $option9['sfsi_disable_floaticons'] == 'yes') {
 		wp_enqueue_style("disable_sfsi", SFSI_PLUGURL . 'css/disable_sfsi.css');
 	}
 	if (isset($_GET['page'])) {

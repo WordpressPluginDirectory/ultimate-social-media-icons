@@ -565,14 +565,25 @@ class sfsi_SocialHelper
         $permalink = rawurlencode(esc_url(rawurldecode($permalink))); /*Vulnerability*/
 
         $sfsi_section4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+
+        // Ensure $sfsi_section4 is an array before accessing it (PHP 8.x compatibility)
+        if (!is_array($sfsi_section4)) {
+            $sfsi_section4 = array();
+        }
+
         $socialObj = new sfsi_SocialHelper();
         $count_html = "";
         if ($show_count) {
             /* get twitter counts */
-            if ($sfsi_section4['sfsi_twitter_countsFrom'] == "source") {
+            if (isset($sfsi_section4['sfsi_twitter_countsFrom']) && $sfsi_section4['sfsi_twitter_countsFrom'] == "source") {
                 $option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
 
-                $twitter_user = $option2['sfsi_twitter_followUserName'];
+                // Ensure $option2 is an array before accessing it (PHP 8.x compatibility)
+                if (!is_array($option2)) {
+                    $option2 = array();
+                }
+
+                $twitter_user = isset($option2['sfsi_twitter_followUserName']) ? $option2['sfsi_twitter_followUserName'] : '';
                 $tw_settings = array(
                     'tw_consumer_key' => $sfsi_section4['tw_consumer_key'],
                     'tw_consumer_secret' => $sfsi_section4['tw_consumer_secret'],

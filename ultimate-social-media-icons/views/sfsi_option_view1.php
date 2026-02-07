@@ -16,11 +16,13 @@ $option1['sfsi_youtube_display'] = isset( $option1['sfsi_youtube_display'] ) ? s
 $option1['sfsi_pinterest_display'] = isset( $option1['sfsi_pinterest_display'] ) ? sanitize_text_field( $option1['sfsi_pinterest_display'] ) : 'no';
 $option1['sfsi_telegram_display'] = isset( $option1['sfsi_telegram_display'] ) ? sanitize_text_field( $option1['sfsi_telegram_display'] ) : 'no';
 $option1['sfsi_vk_display'] = isset( $option1['sfsi_vk_display'] ) ? sanitize_text_field( $option1['sfsi_vk_display'] ) : 'no';
+$option1['sfsi_bluesky_display'] = isset( $option1['sfsi_bluesky_display'] ) ? sanitize_text_field( $option1['sfsi_bluesky_display'] ) : 'no';
 $option1['sfsi_ok_display'] = isset( $option1['sfsi_ok_display'] ) ? sanitize_text_field( $option1['sfsi_ok_display'] ) : 'no';
 $option1['sfsi_wechat_display'] = isset( $option1['sfsi_wechat_display'] ) ? sanitize_text_field( $option1['sfsi_wechat_display'] ) : 'no';
 $option1['sfsi_weibo_display'] = isset( $option1['sfsi_weibo_display'] ) ? sanitize_text_field( $option1['sfsi_weibo_display'] ) : 'no';
 $option1['sfsi_linkedin_display'] = isset( $option1['sfsi_linkedin_display'] ) ? sanitize_text_field( $option1['sfsi_linkedin_display'] ) : 'no';
 $option1['sfsi_instagram_display'] = isset( $option1['sfsi_instagram_display'] ) ? sanitize_text_field( $option1['sfsi_instagram_display'] ) : 'no';
+$option1['sfsi_threads_display'] = isset( $option1['sfsi_threads_display'] ) ? sanitize_text_field( $option1['sfsi_threads_display'] ) : 'no';
 $option1['sfsi_ria_display'] = isset( $option1['sfsi_ria_display'] ) ? sanitize_text_field( $option1['sfsi_ria_display'] ) : 'no';
 $option1['sfsi_inha_display'] = isset( $option1['sfsi_inha_display'] ) ? sanitize_text_field( $option1['sfsi_inha_display'] ) : 'no';
 $option1['sfsi_whatsapp_display'] = isset( $option1['sfsi_whatsapp_display'] ) ? sanitize_text_field( $option1['sfsi_whatsapp_display'] ) : 'no';
@@ -216,6 +218,24 @@ $option1['sfsi_mastodon_display'] = isset( $option1['sfsi_mastodon_display'] ) ?
         </li>
         <!-- END INSTAGRAM ICON -->
 
+        <!-- THREADS ICON -->
+        <li class="sfsi_vertically_center">
+            <div>
+                <div class="radio_section tb_4_ck"><input name="sfsi_threads_display" <?php echo ($option1['sfsi_threads_display'] == 'yes') ? 'checked="true"' : ''; ?> id="sfsi_threads_display" type="checkbox" value="yes" class="styled" /></div>
+
+                <span class="sfsicls_threads"><?php _e('Threads','ultimate-social-media-icons') ?></span>
+
+            </div>
+
+            <div class="right_info">
+
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Use this icon if you want users to share your content on Threads.','ultimate-social-media-icons') ?> </p>
+
+            </div>
+
+        </li>
+        <!-- END THREADS ICON -->
+
         <!-- RIA ICON -->
         <li class="sfsi_vertically_center">
             <div>
@@ -312,6 +332,22 @@ $option1['sfsi_mastodon_display'] = isset( $option1['sfsi_mastodon_display'] ) ?
 
         </li>
         <!-- END VK ICON -->
+
+        <!-- BLUESKY ICON -->
+        <li class="sfsi_vertically_center">
+            <div>
+                <div class="radio_section tb_4_ck"><input name="sfsi_bluesky_display" <?php echo ($option1['sfsi_bluesky_display'] == 'yes') ? 'checked="true"' : ''; ?> id="sfsi_bluesky_display" type="checkbox" value="yes" class="styled" /></div>
+
+                <span class="sfsicls_bluesky"><?php _e('Bluesky','ultimate-social-media-icons') ?></span>
+            </div>
+            <div class="right_info">
+
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span> <?php _e('Use this icon if you want users to share your content on Bluesky.','ultimate-social-media-icons') ?></p>
+
+            </div>
+
+        </li>
+        <!-- END BLUESKY ICON -->
 
         <!-- OK ICON -->
         <li class="sfsi_vertically_center">

@@ -50,32 +50,32 @@
 
 @font-face {
     font-family: 'JosefinSans';
-    src: URL('fonts/JosefinSans-Bold.ttf') format('truetype');
+    src: url('fonts/JosefinSans-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'JosefinSans';
-    src: URL('fonts/JosefinSans-SemiBold.ttf') format('truetype');
+    src: url('fonts/JosefinSans-SemiBold.ttf') format('truetype');
     font-weight: 600;
 }
 
 @font-face {
     font-family: 'JosefinSans';
-    src: URL('fonts/JosefinSans-MediumItalic.ttf') format('truetype');
+    src: url('fonts/JosefinSans-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'JosefinSans';
-    src: URL('fonts/JosefinSans-Regular.ttf') format('truetype');
+    src: url('fonts/JosefinSans-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'JosefinSans';
-    src: URL('fonts/JosefinSans-LightItalic.ttf') format('truetype');
+    src: url('fonts/JosefinSans-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
 }
@@ -267,7 +267,9 @@ ul.icn_listing li .tb_4_ck {
 .tab1 ul.icn_listing li .sfsicls_reddit,
 .tab1 ul.icn_listing li .sfsicls_fbmessenger,
 .tab1 ul.icn_listing li .sfsicls_copylink,
-.tab1 ul.icn_listing li .sfsicls_tiktok {
+.tab1 ul.icn_listing li .sfsicls_tiktok,
+.tab1 ul.icn_listing li .sfsicls_threads,
+.tab1 ul.icn_listing li .sfsicls_bluesky {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     float: left;
     padding: 0 0 0 59px;
@@ -342,7 +344,7 @@ ul.icn_listing li .tb_4_ck {
     color: #f15f5d;
 }
 .tab1 ul.icn_listing li .sfsicls_instagram {
-    background-position: 0 -781px;
+    background-position: -3px -781px;
     color: #369;
 }
 .tab1 ul.icn_listing li .custom {
@@ -440,6 +442,8 @@ ul.icn_listing li .right_info a {
 .tab2 .row h2.sfsicls_copylink,
 .tab2 .row h2.sfsicls_mastodon,
 .tab2 .row h2.sfsicls_inha,
+.tab2 .row h2.sfsicls_threads,
+.tab2 .row h2.sfsicls_bluesky,
 .tab2 .row h2.sfsicls_ria
  {
     background: url(../images/tab_1_icn_list.png) no-repeat;
@@ -469,6 +473,14 @@ ul.icn_listing li .right_info a {
 }
 .tab2 .row h2.sfsicls_wechat {
     background: url(../images/icons_theme/default/default_wechat.png) no-repeat;
+    background-size: contain;
+}
+.tab2 .row h2.sfsicls_threads {
+    background: url(../images/icons_theme/default/default_threads.png) no-repeat;
+    background-size: contain;
+}
+.tab2 .row h2.sfsicls_bluesky {
+    background: url(../images/icons_theme/default/default_bluesky.png) no-repeat;
     background-size: contain;
 }
 .tab2 .row h2.sfsicls_weibo {
@@ -1080,7 +1092,45 @@ ul.tab_2_email_sec li .radio {
 .icns_tab_3 .row_17_29,
 .icns_tab_3 .row_18_29,
 .icns_tab_3 .row_19_29,
-.icns_tab_3 .row_20_29
+.icns_tab_3 .row_20_29,
+.icns_tab_3 .row_1_30,
+.icns_tab_3 .row_1_31,
+.icns_tab_3 .row_3_30,
+.icns_tab_3 .row_3_31,
+.icns_tab_3 .row_4_30,
+.icns_tab_3 .row_4_31,
+.icns_tab_3 .row_5_30,
+.icns_tab_3 .row_5_31,
+.icns_tab_3 .row_6_30,
+.icns_tab_3 .row_6_31,
+.icns_tab_3 .row_7_30,
+.icns_tab_3 .row_7_31,
+.icns_tab_3 .row_8_30,
+.icns_tab_3 .row_8_31,
+.icns_tab_3 .row_9_30,
+.icns_tab_3 .row_9_31,
+.icns_tab_3 .row_10_30,
+.icns_tab_3 .row_10_31,
+.icns_tab_3 .row_11_30,
+.icns_tab_3 .row_11_31,
+.icns_tab_3 .row_12_30,
+.icns_tab_3 .row_12_31,
+.icns_tab_3 .row_13_30,
+.icns_tab_3 .row_13_31,
+.icns_tab_3 .row_14_30,
+.icns_tab_3 .row_14_31,
+.icns_tab_3 .row_15_30,
+.icns_tab_3 .row_15_31,
+.icns_tab_3 .row_16_30,
+.icns_tab_3 .row_16_31,
+.icns_tab_3 .row_17_30,
+.icns_tab_3 .row_17_31,
+.icns_tab_3 .row_18_30,
+.icns_tab_3 .row_18_31,
+.icns_tab_3 .row_19_30,
+.icns_tab_3 .row_19_31,
+.icns_tab_3 .row_20_30,
+.icns_tab_3 .row_20_31
 {
     background: url(../images/tab_3_icns.png) no-repeat;
     width: 53px;
@@ -1144,6 +1194,158 @@ ul.tab_2_email_sec li .radio {
     background: url(../images/icons_theme/default/default_wechat.png) no-repeat;
     background-size: contain;
 }
+.icns_tab_3 .row_1_30 {
+    background: url(../images/icons_theme/default/default_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_1_31 {
+    background: url(../images/icons_theme/default/default_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_3_30 {
+    background: url(../images/icons_theme/thin/thin_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_3_31 {
+    background: url(../images/icons_theme/thin/thin_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_4_30 {
+    background: url(../images/icons_theme/cute/cute_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_4_31 {
+    background: url(../images/icons_theme/cute/cute_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_5_30 {
+    background: url(../images/icons_theme/cubes/cubes_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_5_31 {
+    background: url(../images/icons_theme/cubes/cubes_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_6_30 {
+    background: url(../images/icons_theme/chrome_blue/chrome_blue_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_6_31 {
+    background: url(../images/icons_theme/chrome_blue/chrome_blue_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_7_30 {
+    background: url(../images/icons_theme/chrome_grey/chrome_grey_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_7_31 {
+    background: url(../images/icons_theme/chrome_grey/chrome_grey_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_8_30 {
+    background: url(../images/icons_theme/splash/splash_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_8_31 {
+    background: url(../images/icons_theme/splash/splash_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_9_30 {
+    background: url(../images/icons_theme/orange/orange_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_9_31 {
+    background: url(../images/icons_theme/orange/orange_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_10_30 {
+    background: url(../images/icons_theme/crystal/crystal_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_10_31 {
+    background: url(../images/icons_theme/crystal/crystal_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_11_30 {
+    background: url(../images/icons_theme/glossy/glossy_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_11_31 {
+    background: url(../images/icons_theme/glossy/glossy_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_12_30 {
+    background: url(../images/icons_theme/black/black_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_12_31 {
+    background: url(../images/icons_theme/black/black_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_13_30 {
+    background: url(../images/icons_theme/silver/silver_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_13_31 {
+    background: url(../images/icons_theme/silver/silver_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_14_30 {
+    background: url(../images/icons_theme/shaded_dark/shaded_dark_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_14_31 {
+    background: url(../images/icons_theme/shaded_dark/shaded_dark_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_15_30 {
+    background: url(../images/icons_theme/shaded_light/shaded_light_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_15_31 {
+    background: url(../images/icons_theme/shaded_light/shaded_light_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_16_30 {
+    background: url(../images/icons_theme/transparent/transparent_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_16_31 {
+    background: url(../images/icons_theme/transparent/transparent_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_17_30 {
+    background: url(../images/icons_theme/flat_square/flat_square_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_17_31 {
+    background: url(../images/icons_theme/flat_square/flat_square_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_18_30 {
+    background: url(../images/icons_theme/flat_squared/flat_squared_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_18_31 {
+    background: url(../images/icons_theme/flat_squared/flat_squared_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_19_30 {
+    background: url(../images/icons_theme/icons_only/icons_only_threads.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_19_31 {
+    background: url(../images/icons_theme/icons_only/icons_only_bluesky.png) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_20_30 {
+    background: url(../images/icons_theme/animated_icons/animated_icons_threads.gif) no-repeat;
+    background-size: contain;
+}
+.icns_tab_3 .row_20_31 {
+    background: url(../images/icons_theme/animated_icons/animated_icons_bluesky.gif) no-repeat;
+    background-size: contain;
+}
 .icns_tab_3 .row_1_19 {
     background-position: -1046px 0;
 }
@@ -1181,7 +1383,7 @@ ul.tab_2_email_sec li .radio {
 }
 .icns_tab_3 .row_2_4 {
     background: url(../images/icons_theme/flat/flat_twitter.png) no-repeat;
-    background-size: contain;px -74px;
+    background-size: contain;
 }
 .icns_tab_3 .row_2_5 {
     background: url(../images/icons_theme/flat/flat_youtube.png) no-repeat;
@@ -5831,6 +6033,16 @@ body .specify_counts .listing .sfsi_instagramInstruction p {
 
 .tab1 ul.icn_listing li .sfsicls_tiktok {
     background: url(../images/icons_theme/default/default_tiktok.png) no-repeat;
+    background-size: contain;
+}
+
+.tab1 ul.icn_listing li .sfsicls_threads {
+    background: url(../images/icons_theme/default/default_threads.png) no-repeat;
+    background-size: contain;
+}
+
+.tab1 ul.icn_listing li .sfsicls_bluesky {
+    background: url(../images/icons_theme/default/default_bluesky.png) no-repeat;
     background-size: contain;
 }
 

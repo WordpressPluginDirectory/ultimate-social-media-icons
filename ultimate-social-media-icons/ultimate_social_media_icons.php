@@ -7,7 +7,7 @@ Author URI: https://inisev.com
 Plugin URI: https://ultimatelysocial.com
 Text Domain: ultimate-social-media-icons
 Domain Path: /languages
-Version: 2.9.5
+Version: 2.9.7
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -55,7 +55,7 @@ sfsi_error_reporting();
 
 global $wpdb;
 /* define the Root for URL and Document */
-define('SFSI_PLUGIN_VERSION', '2.9.5');
+define('SFSI_PLUGIN_VERSION', '2.9.7');
 define('SFSI_DOCROOT', dirname(__FILE__));
 define('SFSI_YOUTUBE_API_KEY', 'AIzaSyCWiL-jpKDeU5-bVVfU-sk33j6hFJiS-8g');
 
@@ -378,6 +378,11 @@ function check_sfsfiupdatedoptions()
 
     $option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
 
+    // Ensure $option4 is an array before accessing/modifying it (PHP 8.x compatibility)
+    if (!is_array($option4)) {
+        $option4 = array();
+    }
+
     if (isset($option4['sfsi_youtubeusernameorid']) && !empty($option4['sfsi_youtubeusernameorid'])) {
     } else {
 
@@ -415,6 +420,11 @@ function addStyleFunction()
 {
 
     $option8 = maybe_unserialize(get_option('sfsi_section8_options', false));
+
+    // Ensure $option8 is an array before accessing it (PHP 8.x compatibility)
+    if (!is_array($option8)) {
+        $option8 = array();
+    }
 
     $sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
 

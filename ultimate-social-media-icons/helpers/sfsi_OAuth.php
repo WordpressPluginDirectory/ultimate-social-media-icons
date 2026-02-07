@@ -17,7 +17,8 @@ if (!class_exists('OAuthConsumer'))
 	{
 		public $key;
 	  	public $secret;
-	
+		public $callback_url; // PHP 8.2+ compatibility: declare property to avoid dynamic property deprecation
+
 		function __construct($key, $secret, $callback_url=NULL) {
 			$this->key = $key;
 			$this->secret = $secret;

@@ -60,10 +60,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_1_8 pinterest_section"></span>
                     <span class="row_1_9 linkedin_section"></span>
                     <span class="row_1_10 instagram_section"></span>
+                    <span class="row_1_30 threads_section"></span>
+                    <span class="row_1_14 telegram_section"></span>
                     <span class="row_1_25 inha_section"></span>
                     <span class="row_1_26 ria_section"></span>
-                    <span class="row_1_14 telegram_section"></span>
                     <span class="row_1_15 vk_section"></span>
+                    <span class="row_1_31 bluesky_section"></span>
                     <span class="row_1_16 ok_section"></span>
                     <span class="row_1_19 whatsapp_section"></span>
                     <span class="row_1_17 weibo_section"></span>
@@ -107,10 +109,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_20_8 pinterest_section"></span>
                     <span class="row_20_9 linkedin_section"></span>
                     <span class="row_20_10 instagram_section"></span>
+                    <span class="row_20_30 threads_section"></span>
                     <span class="row_20_25 ria_section"></span>
                     <span class="row_20_26 inha_section"></span>
                     <span class="row_20_14 telegram_section"></span>
                     <span class="row_20_15 vk_section"></span>
+                    <span class="row_20_31 bluesky_section"></span>
                     <span class="row_20_16 ok_section"></span>
                     <span class="row_20_19 whatsapp_section"></span>
                     <span class="row_20_17 weibo_section"></span>
@@ -128,178 +132,192 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
             <li>   
                 <input name="sfsi_actvite_theme" <?php echo ($option3['sfsi_actvite_theme'] == 'flat') ? 'checked="true"' : ''; ?> type="radio" value="flat" class="styled" />
                 <label><?php _e( 'Flat', 'ultimate-social-media-icons' ); ?></label>
-                <?php
-                    $sfsi_rss_bgColor = $sfsi_rss_bgColor_style = $sfsi_email_bgColor = $sfsi_email_bgColor_style = $sfsi_facebook_bgColor = $sfsi_facebook_bgColor_style = $sfsi_twitter_bgColor = $sfsi_twitter_bgColor_style = $sfsi_youtube_bgColor = $sfsi_youtube_bgColor_style = $sfsi_pinterest_bgColor = $sfsi_pinterest_bgColor_style = $sfsi_linkedin_bgColor = $sfsi_linkedin_bgColor_style = $sfsi_instagram_bgColor = $sfsi_instagram_bgColor_style = $sfsi_ria_bgColor = $sfsi_ria_bgColor_style = $sfsi_inha_bgColor = $sfsi_inha_bgColor_style = $sfsi_snapchat_bgColor = $sfsi_snapchat_bgColor_style = $sfsi_whatsapp_bgColor = $sfsi_whatsapp_bgColor_style = $sfsi_reddit_bgColor = $sfsi_reddit_bgColor_style = $sfsi_fbmessenger_bgColor = $sfsi_fbmessenger_bgColor_style = $sfsi_ok_bgColor = $sfsi_ok_bgColor_style = $sfsi_telegram_bgColor = $sfsi_telegram_bgColor_style = $sfsi_vk_bgColor = $sfsi_vk_bgColor_style = $sfsi_wechat_bgColor = $sfsi_wechat_bgColor_style = $sfsi_weibo_bgColor = $sfsi_weibo_bgColor_style = $sfsi_tiktok_bgColor = $sfsi_tiktok_bgColor_style = $sfsi_copylink_bgColor = $sfsi_copylink_bgColor_style = $sfsi_mastodon_bgColor = $sfsi_mastodon_bgColor_style = '';
-                    
-                    if ( isset( $option3['sfsi_rss_bgColor'] ) && $option3['sfsi_rss_bgColor'] != '' ) {
-                        $sfsi_rss_bgColor = $option3['sfsi_rss_bgColor'];
-                        $sfsi_rss_bgColor_style = 'background: '.$sfsi_rss_bgColor;
-                    } else {
-                        $sfsi_rss_bgColor_style = 'background: #f2721f';
-                    }
-                
-                    if ( isset( $option3['sfsi_email_bgColor'] ) && $option3['sfsi_email_bgColor'] != '' ) {
-                        $sfsi_email_bgColor = $option3['sfsi_email_bgColor'];
-                        $sfsi_email_bgColor_style = 'background: '.$sfsi_email_bgColor;
-                    } else {
-                        if ($option2['sfsi_rss_icons'] == "sfsi") {
-                            $sfsi_email_bgColor_style = 'background: #05B04E';
-                        } elseif ($option2['sfsi_rss_icons'] == "email") {
-                            $sfsi_email_bgColor_style = 'background: #343D44';
-                        } else {
-                            $sfsi_email_bgColor_style = 'background: #a2a2a2';
-                        }
-                    }
+	            <?php
+	            $sfsi_rss_bgColor = $sfsi_rss_bgColor_style = $sfsi_email_bgColor = $sfsi_email_bgColor_style = $sfsi_facebook_bgColor = $sfsi_facebook_bgColor_style = $sfsi_twitter_bgColor = $sfsi_twitter_bgColor_style = $sfsi_youtube_bgColor = $sfsi_youtube_bgColor_style = $sfsi_pinterest_bgColor = $sfsi_pinterest_bgColor_style = $sfsi_linkedin_bgColor = $sfsi_linkedin_bgColor_style = $sfsi_instagram_bgColor = $sfsi_instagram_bgColor_style = $sfsi_ria_bgColor = $sfsi_ria_bgColor_style = $sfsi_inha_bgColor = $sfsi_inha_bgColor_style = $sfsi_snapchat_bgColor = $sfsi_snapchat_bgColor_style = $sfsi_whatsapp_bgColor = $sfsi_whatsapp_bgColor_style = $sfsi_reddit_bgColor = $sfsi_reddit_bgColor_style = $sfsi_fbmessenger_bgColor = $sfsi_fbmessenger_bgColor_style = $sfsi_ok_bgColor = $sfsi_ok_bgColor_style = $sfsi_telegram_bgColor = $sfsi_telegram_bgColor_style = $sfsi_vk_bgColor = $sfsi_vk_bgColor_style = $sfsi_wechat_bgColor = $sfsi_wechat_bgColor_style = $sfsi_weibo_bgColor = $sfsi_weibo_bgColor_style = $sfsi_tiktok_bgColor = $sfsi_tiktok_bgColor_style = $sfsi_copylink_bgColor = $sfsi_copylink_bgColor_style = $sfsi_mastodon_bgColor = $sfsi_mastodon_bgColor_style = $sfsi_threads_bgColor = $sfsi_threads_bgColor_style = $sfsi_bluesky_bgColor = $sfsi_bluesky_bgColor_style = '';
 
-                    $sfsi_email_default = '';
-                    if ($option2['sfsi_rss_icons'] == "sfsi") {
-                        $sfsi_email_default = '#05B04E';
-                    } elseif ($option2['sfsi_rss_icons'] == "email") {
-                        $sfsi_email_default = '#343D44';
-                    } else {
-                        $sfsi_email_default = '#a2a2a2';
-                    }
-                
-                    if ( isset( $option3['sfsi_facebook_bgColor'] ) && $option3['sfsi_facebook_bgColor'] != '' ) {
-                        $sfsi_facebook_bgColor = $option3['sfsi_facebook_bgColor'];
-                        $sfsi_facebook_bgColor_style = 'background: '.$sfsi_facebook_bgColor;
-                    } else {
-                        $sfsi_facebook_bgColor_style = 'background: #336699';
-                    }
-                
-                    if ( isset( $option3['sfsi_twitter_bgColor'] ) && $option3['sfsi_twitter_bgColor'] != '' ) {
-                        $sfsi_twitter_bgColor = $option3['sfsi_twitter_bgColor'];
-                        $sfsi_twitter_bgColor_style = 'background: '.$sfsi_twitter_bgColor;
-                    } else {
-                        $sfsi_twitter_bgColor_style = 'background: #020202';
-                    }
-                
-                    if ( isset( $option3['sfsi_youtube_bgColor'] ) && $option3['sfsi_youtube_bgColor'] != '' ) {
-                        $sfsi_youtube_bgColor = $option3['sfsi_youtube_bgColor'];
-                        $sfsi_youtube_bgColor_style = 'background: '.$sfsi_youtube_bgColor;
-                    } else {
-                        $sfsi_youtube_bgColor_style = 'background: #c33';
-                    }
-                
-                    if ( isset( $option3['sfsi_pinterest_bgColor'] ) && $option3['sfsi_pinterest_bgColor'] != '' ) {
-                        $sfsi_pinterest_bgColor = $option3['sfsi_pinterest_bgColor'];
-                        $sfsi_pinterest_bgColor_style = 'background: '.$sfsi_pinterest_bgColor;
-                    } else {
-                        $sfsi_pinterest_bgColor_style = 'background: #CC3333';
-                    }
-                
-                    if ( isset( $option3['sfsi_linkedin_bgColor'] ) && $option3['sfsi_linkedin_bgColor'] != '' ) {
-                        $sfsi_linkedin_bgColor = $option3['sfsi_linkedin_bgColor'];
-                        $sfsi_linkedin_bgColor_style = 'background: '.$sfsi_linkedin_bgColor;
-                    } else {
-                        $sfsi_linkedin_bgColor_style = 'background: #0877B5';
-                    }
-                
-                    if ( isset( $option3['sfsi_instagram_bgColor'] ) && $option3['sfsi_instagram_bgColor'] != '' ) {
-                        $sfsi_instagram_bgColor = $option3['sfsi_instagram_bgColor'];
-                        $sfsi_instagram_bgColor_style = 'background: '.$sfsi_instagram_bgColor;
-                    } else {
-                        $sfsi_instagram_bgColor_style = 'background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, rgba(0, 0, 0, 0)), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);';
-                    }
+	            if ( isset( $option3['sfsi_rss_bgColor'] ) && $option3['sfsi_rss_bgColor'] != '' ) {
+		            $sfsi_rss_bgColor       = $option3['sfsi_rss_bgColor'];
+		            $sfsi_rss_bgColor_style = 'background: ' . $sfsi_rss_bgColor;
+	            } else {
+		            $sfsi_rss_bgColor_style = 'background: #f2721f';
+	            }
 
-                    if ( isset( $option3['sfsi_ria_bgColor'] ) && $option3['sfsi_ria_bgColor'] != '' ) {
-                        $sfsi_ria_bgColor = $option3['sfsi_ria_bgColor'];
-                        $sfsi_ria_bgColor_style = 'background: '.$sfsi_ria_bgColor;
-                    } else {
-                        $sfsi_ria_bgColor_style = 'background: #10A9A0 ';
-                    }
+	            if ( isset( $option3['sfsi_email_bgColor'] ) && $option3['sfsi_email_bgColor'] != '' ) {
+		            $sfsi_email_bgColor       = $option3['sfsi_email_bgColor'];
+		            $sfsi_email_bgColor_style = 'background: ' . $sfsi_email_bgColor;
+	            } else {
+		            if ( $option2['sfsi_rss_icons'] == "sfsi" ) {
+			            $sfsi_email_bgColor_style = 'background: #05B04E';
+		            } elseif ( $option2['sfsi_rss_icons'] == "email" ) {
+			            $sfsi_email_bgColor_style = 'background: #343D44';
+		            } else {
+			            $sfsi_email_bgColor_style = 'background: #a2a2a2';
+		            }
+	            }
 
-                    if ( isset( $option3['sfsi_inha_bgColor'] ) && $option3['sfsi_inha_bgColor'] != '' ) {
-                        $sfsi_inha_bgColor = $option3['sfsi_inha_bgColor'];
-                        $sfsi_inha_bgColor_style = 'background: '.$sfsi_inha_bgColor;
-                    } else {
-                        $sfsi_inha_bgColor_style = 'background: #348CBC ';
-                    }
-                    
-                    if ( isset( $option3['sfsi_telegram_bgColor'] ) && $option3['sfsi_telegram_bgColor'] != '' ) {
-                        $sfsi_telegram_bgColor = $option3['sfsi_telegram_bgColor'];
-                        $sfsi_telegram_bgColor_style = 'background: '.$sfsi_telegram_bgColor;
-                    } else {
-                        $sfsi_telegram_bgColor_style = 'background: #33A1D1';
-                    }
-                    
-                    if ( isset( $option3['sfsi_vk_bgColor'] ) && $option3['sfsi_vk_bgColor'] != '' ) {
-                        $sfsi_vk_bgColor = $option3['sfsi_vk_bgColor'];
-                        $sfsi_vk_bgColor_style = 'background: '.$sfsi_vk_bgColor;
-                    } else {
-                        $sfsi_vk_bgColor_style = 'background: #4E77A2';
-                    }
-                    
-                    if ( isset( $option3['sfsi_ok_bgColor'] ) && $option3['sfsi_ok_bgColor'] != '' ) {
-                        $sfsi_ok_bgColor = $option3['sfsi_ok_bgColor'];
-                        $sfsi_ok_bgColor_style = 'background: '.$sfsi_ok_bgColor;
-                    } else {
-                        $sfsi_ok_bgColor_style = 'background: #F58220';
-                    }
-                
-                    if ( isset( $option3['sfsi_whatsapp_bgColor'] ) && $option3['sfsi_whatsapp_bgColor'] != '' ) {
-                        $sfsi_whatsapp_bgColor = $option3['sfsi_whatsapp_bgColor'];
-                        $sfsi_whatsapp_bgColor_style = 'background: '.$sfsi_whatsapp_bgColor;
-                    } else {
-                        $sfsi_whatsapp_bgColor_style = 'background: #3ED946';
-                    }
+	            $sfsi_email_default = '';
+	            if ( $option2['sfsi_rss_icons'] == "sfsi" ) {
+		            $sfsi_email_default = '#05B04E';
+	            } elseif ( $option2['sfsi_rss_icons'] == "email" ) {
+		            $sfsi_email_default = '#343D44';
+	            } else {
+		            $sfsi_email_default = '#a2a2a2';
+	            }
 
-                    if ( isset( $option3['sfsi_weibo_bgColor'] ) && $option3['sfsi_weibo_bgColor'] != '' ) {
-                        $sfsi_weibo_bgColor = $option3['sfsi_weibo_bgColor'];
-                        $sfsi_weibo_bgColor_style = 'background: '.$sfsi_weibo_bgColor;
-                    } else {
-                        $sfsi_weibo_bgColor_style = 'background: #E6162D';
-                    }
+	            if ( isset( $option3['sfsi_facebook_bgColor'] ) && $option3['sfsi_facebook_bgColor'] != '' ) {
+		            $sfsi_facebook_bgColor       = $option3['sfsi_facebook_bgColor'];
+		            $sfsi_facebook_bgColor_style = 'background: ' . $sfsi_facebook_bgColor;
+	            } else {
+		            $sfsi_facebook_bgColor_style = 'background: #336699';
+	            }
 
-                    if ( isset( $option3['sfsi_wechat_bgColor'] ) && $option3['sfsi_wechat_bgColor'] != '' ) {
-                        $sfsi_wechat_bgColor = $option3['sfsi_wechat_bgColor'];
-                        $sfsi_wechat_bgColor_style = 'background: '.$sfsi_wechat_bgColor;
-                    } else {
-                        $sfsi_wechat_bgColor_style = 'background: #4BAD33';
-                    }
+	            if ( isset( $option3['sfsi_threads_bgColor'] ) && $option3['sfsi_threads_bgColor'] != '' ) {
+		            $sfsi_threads_bgColor       = $option3['sfsi_threads_bgColor'];
+		            $sfsi_threads_bgColor_style = 'background: ' . $sfsi_threads_bgColor;
+	            } else {
+		            $sfsi_threads_bgColor_style = 'background: #252525';
+	            }
 
-                    if ( isset( $option3['sfsi_snapchat_bgColor'] ) && $option3['sfsi_snapchat_bgColor'] != '' ) {
-                        $sfsi_snapchat_bgColor = $option3['sfsi_snapchat_bgColor'];
-                        $sfsi_snapchat_bgColor_style = 'background: '.$sfsi_snapchat_bgColor;
-                    } else {
-                        $sfsi_snapchat_bgColor_style = 'background: #EDEC1F';
-                    }
-                
-                    if ( isset( $option3['sfsi_reddit_bgColor'] ) && $option3['sfsi_reddit_bgColor'] != '' ) {
-                        $sfsi_reddit_bgColor = $option3['sfsi_reddit_bgColor'];
-                        $sfsi_reddit_bgColor_style = 'background: '.$sfsi_reddit_bgColor;
-                    } else {
-                        $sfsi_reddit_bgColor_style = 'background: #FF642C';
-                    }
-                
-                    if ( isset( $option3['sfsi_fbmessenger_bgColor'] ) && $option3['sfsi_fbmessenger_bgColor'] != '' ) {
-                        $sfsi_fbmessenger_bgColor = $option3['sfsi_fbmessenger_bgColor'];
-                        $sfsi_fbmessenger_bgColor_style = 'background: '.$sfsi_fbmessenger_bgColor;
-                    } else {
-                        $sfsi_fbmessenger_bgColor_style = 'background: #447BBF';
-                    }
-                
-                    if ( isset( $option3['sfsi_tiktok_bgColor'] ) && $option3['sfsi_tiktok_bgColor'] != '' ) {
-                        $sfsi_tiktok_bgColor = $option3['sfsi_tiktok_bgColor'];
-                        $sfsi_tiktok_bgColor_style = 'background: '.$sfsi_tiktok_bgColor;
-                    } else {
-                        $sfsi_tiktok_bgColor_style = 'background: #000000';
-                    }
+	            if ( isset( $option3['sfsi_bluesky_bgColor'] ) && $option3['sfsi_bluesky_bgColor'] != '' ) {
+		            $sfsi_bluesky_bgColor       = $option3['sfsi_bluesky_bgColor'];
+		            $sfsi_bluesky_bgColor_style = 'background: ' . $sfsi_bluesky_bgColor;
+	            } else {
+		            $sfsi_bluesky_bgColor_style = 'background: #1185fe';
+	            }
 
-                    if ( isset( $option3['sfsi_copylink_bgColor'] ) && $option3['sfsi_copylink_bgColor'] != '' ) {
-                        $sfsi_copylink_bgColor = $option3['sfsi_copylink_bgColor'];
-                        $sfsi_copylink_bgColor_style = 'background: '.$sfsi_copylink_bgColor;
-                    } else {
-                        $sfsi_copylink_bgColor_style = 'background: linear-gradient(180deg, #C295FF 0%, #4273F7 100%)';
-                    }
+	            if ( isset( $option3['sfsi_twitter_bgColor'] ) && $option3['sfsi_twitter_bgColor'] != '' ) {
+		            $sfsi_twitter_bgColor       = $option3['sfsi_twitter_bgColor'];
+		            $sfsi_twitter_bgColor_style = 'background: ' . $sfsi_twitter_bgColor;
+	            } else {
+		            $sfsi_twitter_bgColor_style = 'background: #020202';
+	            }
 
-                    if ( isset( $option3['sfsi_mastodon_bgColor'] ) && $option3['sfsi_mastodon_bgColor'] != '' ) {
-                        $sfsi_mastodon_bgColor = $option3['sfsi_mastodon_bgColor'];
-                        $sfsi_mastodon_bgColor_style = 'background: '.$sfsi_mastodon_bgColor;
-                    } else {
-                        $sfsi_mastodon_bgColor_style = 'background: #583ED1';
-                    }
-                ?>
+	            if ( isset( $option3['sfsi_youtube_bgColor'] ) && $option3['sfsi_youtube_bgColor'] != '' ) {
+		            $sfsi_youtube_bgColor       = $option3['sfsi_youtube_bgColor'];
+		            $sfsi_youtube_bgColor_style = 'background: ' . $sfsi_youtube_bgColor;
+	            } else {
+		            $sfsi_youtube_bgColor_style = 'background: #c33';
+	            }
+
+	            if ( isset( $option3['sfsi_pinterest_bgColor'] ) && $option3['sfsi_pinterest_bgColor'] != '' ) {
+		            $sfsi_pinterest_bgColor       = $option3['sfsi_pinterest_bgColor'];
+		            $sfsi_pinterest_bgColor_style = 'background: ' . $sfsi_pinterest_bgColor;
+	            } else {
+		            $sfsi_pinterest_bgColor_style = 'background: #CC3333';
+	            }
+
+	            if ( isset( $option3['sfsi_linkedin_bgColor'] ) && $option3['sfsi_linkedin_bgColor'] != '' ) {
+		            $sfsi_linkedin_bgColor       = $option3['sfsi_linkedin_bgColor'];
+		            $sfsi_linkedin_bgColor_style = 'background: ' . $sfsi_linkedin_bgColor;
+	            } else {
+		            $sfsi_linkedin_bgColor_style = 'background: #0877B5';
+	            }
+
+	            if ( isset( $option3['sfsi_instagram_bgColor'] ) && $option3['sfsi_instagram_bgColor'] != '' ) {
+		            $sfsi_instagram_bgColor       = $option3['sfsi_instagram_bgColor'];
+		            $sfsi_instagram_bgColor_style = 'background: ' . $sfsi_instagram_bgColor;
+	            } else {
+		            $sfsi_instagram_bgColor_style = 'background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, rgba(0, 0, 0, 0)), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);';
+	            }
+
+	            if ( isset( $option3['sfsi_ria_bgColor'] ) && $option3['sfsi_ria_bgColor'] != '' ) {
+		            $sfsi_ria_bgColor       = $option3['sfsi_ria_bgColor'];
+		            $sfsi_ria_bgColor_style = 'background: ' . $sfsi_ria_bgColor;
+	            } else {
+		            $sfsi_ria_bgColor_style = 'background: #10A9A0 ';
+	            }
+
+	            if ( isset( $option3['sfsi_inha_bgColor'] ) && $option3['sfsi_inha_bgColor'] != '' ) {
+		            $sfsi_inha_bgColor       = $option3['sfsi_inha_bgColor'];
+		            $sfsi_inha_bgColor_style = 'background: ' . $sfsi_inha_bgColor;
+	            } else {
+		            $sfsi_inha_bgColor_style = 'background: #348CBC ';
+	            }
+
+	            if ( isset( $option3['sfsi_telegram_bgColor'] ) && $option3['sfsi_telegram_bgColor'] != '' ) {
+		            $sfsi_telegram_bgColor       = $option3['sfsi_telegram_bgColor'];
+		            $sfsi_telegram_bgColor_style = 'background: ' . $sfsi_telegram_bgColor;
+	            } else {
+		            $sfsi_telegram_bgColor_style = 'background: #33A1D1';
+	            }
+
+	            if ( isset( $option3['sfsi_vk_bgColor'] ) && $option3['sfsi_vk_bgColor'] != '' ) {
+		            $sfsi_vk_bgColor       = $option3['sfsi_vk_bgColor'];
+		            $sfsi_vk_bgColor_style = 'background: ' . $sfsi_vk_bgColor;
+	            } else {
+		            $sfsi_vk_bgColor_style = 'background: #4E77A2';
+	            }
+
+	            if ( isset( $option3['sfsi_ok_bgColor'] ) && $option3['sfsi_ok_bgColor'] != '' ) {
+		            $sfsi_ok_bgColor       = $option3['sfsi_ok_bgColor'];
+		            $sfsi_ok_bgColor_style = 'background: ' . $sfsi_ok_bgColor;
+	            } else {
+		            $sfsi_ok_bgColor_style = 'background: #F58220';
+	            }
+
+	            if ( isset( $option3['sfsi_whatsapp_bgColor'] ) && $option3['sfsi_whatsapp_bgColor'] != '' ) {
+		            $sfsi_whatsapp_bgColor       = $option3['sfsi_whatsapp_bgColor'];
+		            $sfsi_whatsapp_bgColor_style = 'background: ' . $sfsi_whatsapp_bgColor;
+	            } else {
+		            $sfsi_whatsapp_bgColor_style = 'background: #3ED946';
+	            }
+
+	            if ( isset( $option3['sfsi_weibo_bgColor'] ) && $option3['sfsi_weibo_bgColor'] != '' ) {
+		            $sfsi_weibo_bgColor       = $option3['sfsi_weibo_bgColor'];
+		            $sfsi_weibo_bgColor_style = 'background: ' . $sfsi_weibo_bgColor;
+	            } else {
+		            $sfsi_weibo_bgColor_style = 'background: #E6162D';
+	            }
+
+	            if ( isset( $option3['sfsi_wechat_bgColor'] ) && $option3['sfsi_wechat_bgColor'] != '' ) {
+		            $sfsi_wechat_bgColor       = $option3['sfsi_wechat_bgColor'];
+		            $sfsi_wechat_bgColor_style = 'background: ' . $sfsi_wechat_bgColor;
+	            } else {
+		            $sfsi_wechat_bgColor_style = 'background: #4BAD33';
+	            }
+
+	            if ( isset( $option3['sfsi_snapchat_bgColor'] ) && $option3['sfsi_snapchat_bgColor'] != '' ) {
+		            $sfsi_snapchat_bgColor       = $option3['sfsi_snapchat_bgColor'];
+		            $sfsi_snapchat_bgColor_style = 'background: ' . $sfsi_snapchat_bgColor;
+	            } else {
+		            $sfsi_snapchat_bgColor_style = 'background: #EDEC1F';
+	            }
+
+	            if ( isset( $option3['sfsi_reddit_bgColor'] ) && $option3['sfsi_reddit_bgColor'] != '' ) {
+		            $sfsi_reddit_bgColor       = $option3['sfsi_reddit_bgColor'];
+		            $sfsi_reddit_bgColor_style = 'background: ' . $sfsi_reddit_bgColor;
+	            } else {
+		            $sfsi_reddit_bgColor_style = 'background: #FF642C';
+	            }
+
+	            if ( isset( $option3['sfsi_fbmessenger_bgColor'] ) && $option3['sfsi_fbmessenger_bgColor'] != '' ) {
+		            $sfsi_fbmessenger_bgColor       = $option3['sfsi_fbmessenger_bgColor'];
+		            $sfsi_fbmessenger_bgColor_style = 'background: ' . $sfsi_fbmessenger_bgColor;
+	            } else {
+		            $sfsi_fbmessenger_bgColor_style = 'background: #447BBF';
+	            }
+
+	            if ( isset( $option3['sfsi_tiktok_bgColor'] ) && $option3['sfsi_tiktok_bgColor'] != '' ) {
+		            $sfsi_tiktok_bgColor       = $option3['sfsi_tiktok_bgColor'];
+		            $sfsi_tiktok_bgColor_style = 'background: ' . $sfsi_tiktok_bgColor;
+	            } else {
+		            $sfsi_tiktok_bgColor_style = 'background: #000000';
+	            }
+
+	            if ( isset( $option3['sfsi_copylink_bgColor'] ) && $option3['sfsi_copylink_bgColor'] != '' ) {
+		            $sfsi_copylink_bgColor       = $option3['sfsi_copylink_bgColor'];
+		            $sfsi_copylink_bgColor_style = 'background: ' . $sfsi_copylink_bgColor;
+	            } else {
+		            $sfsi_copylink_bgColor_style = 'background: linear-gradient(180deg, #C295FF 0%, #4273F7 100%)';
+	            }
+
+	            if ( isset( $option3['sfsi_mastodon_bgColor'] ) && $option3['sfsi_mastodon_bgColor'] != '' ) {
+		            $sfsi_mastodon_bgColor       = $option3['sfsi_mastodon_bgColor'];
+		            $sfsi_mastodon_bgColor_style = 'background: ' . $sfsi_mastodon_bgColor;
+	            } else {
+		            $sfsi_mastodon_bgColor_style = 'background: #583ED1';
+	            }
+	            ?>
                 <div class="sfsi_icns_tab_3 icns_tab_3">
                     <span class="row_2_1 sfsi_icon_bgcolor rss_section">
                         <span class="sfsi_icon_img_wrapper" style="<?php echo esc_attr( $sfsi_rss_bgColor_style ); ?>">
@@ -365,6 +383,14 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                         <input name="sfsi_instagram_bgColor" data-default-color-custom="radial-gradient(circle farthest-corner at 35% 90%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, rgba(0, 0, 0, 0) 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, rgba(0, 0, 0, 0)), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%)" id="sfsi_instagram_bgColor" class="sfsi_input_bgColor" type="text" value="<?php echo esc_attr( $sfsi_instagram_bgColor ); ?>" />
                         </span>
                     </span>
+                    <span class="row_2_10 sfsi_icon_bgcolor threads_section">
+                        <span class="sfsi_icon_img_wrapper" style="<?php echo esc_attr( $sfsi_threads_bgColor_style ); ?>">
+                            <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/flat/flat_threads.png" alt="" />
+                        </span>
+                        <span class="sfsi_icon_color_picker">
+                        <input name="sfsi_threads_bgColor" data-default-color-custom="#252525" id="sfsi_threads_bgColor" class="sfsi_input_bgColor" type="text" value="<?php echo esc_attr( $sfsi_threads_bgColor ); ?>" />
+                        </span>
+                    </span>
                     <span class="row_2_25 sfsi_icon_bgcolor ria_section">
                         <span class="sfsi_icon_img_wrapper" style="<?php echo esc_attr( $sfsi_ria_bgColor_style ); ?>">
                             <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/flat/flat_ria.png" alt="" />
@@ -395,6 +421,14 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                         </span>
                         <span class="sfsi_icon_color_picker">
                         <input name="sfsi_vk_bgColor" data-default-color="#4E77A2" id="sfsi_vk_bgColor" class="sfsi_input_bgColor" type="text" value="<?php echo esc_attr( $sfsi_vk_bgColor ); ?>" />
+                        </span>
+                    </span>
+                    <span class="row_2_15 sfsi_icon_bgcolor bluesky_section">
+                        <span class="sfsi_icon_img_wrapper" style="<?php echo esc_attr( $sfsi_bluesky_bgColor_style ); ?>">
+                            <img src="<?php echo SFSI_PLUGURL ?>images/icons_theme/flat/flat_bluesky.png" alt="" />
+                        </span>
+                        <span class="sfsi_icon_color_picker">
+                        <input name="sfsi_bluesky_bgColor" data-default-color="#1185fe" id="sfsi_bluesky_bgColor" class="sfsi_input_bgColor" type="text" value="<?php echo esc_attr( $sfsi_bluesky_bgColor ); ?>" />
                         </span>
                     </span>
                     <span class="row_2_16 sfsi_icon_bgcolor ok_section">
@@ -490,10 +524,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_17_8 pinterest_section"></span>
                     <span class="row_17_9 linkedin_section"></span>
                     <span class="row_17_10 instagram_section"></span>
+                    <span class="row_17_30 threads_section"></span>
                     <span class="row_17_25 ria_section"></span>
                     <span class="row_17_26 inha_section"></span>
                     <span class="row_17_14 telegram_section"></span>
                     <span class="row_17_15 vk_section"></span>
+                    <span class="row_17_31 bluesky_section"></span>
                     <span class="row_17_16 ok_section"></span>
                     <span class="row_17_19 whatsapp_section"></span>
                     <span class="row_17_17 weibo_section"></span>
@@ -518,10 +554,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_18_8 pinterest_section"></span>
                     <span class="row_18_9 linkedin_section"></span>
                     <span class="row_18_10 instagram_section"></span>
+                    <span class="row_18_30 threads_section"></span>
                     <span class="row_18_25 ria_section"></span>
                     <span class="row_18_26 inha_section"></span>
                     <span class="row_18_14 telegram_section"></span>
                     <span class="row_18_15 vk_section"></span>
+                    <span class="row_18_31 bluesky_section"></span>
                     <span class="row_18_16 ok_section"></span>
                     <span class="row_18_19 whatsapp_section"></span>
                     <span class="row_18_17 weibo_section"></span>
@@ -546,10 +584,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_3_8 pinterest_section"></span>
                     <span class="row_3_9 linkedin_section"></span>
                     <span class="row_3_10 instagram_section"></span>
+                    <span class="row_3_30 threads_section"></span>
                     <span class="row_3_25 ria_section"></span>
                     <span class="row_3_26 inha_section"></span>
                     <span class="row_3_14 telegram_section"></span>
                     <span class="row_3_15 vk_section"></span>
+                    <span class="row_3_31 bluesky_section"></span>
                     <span class="row_3_16 ok_section"></span>
                     <span class="row_3_19 whatsapp_section"></span>
                     <span class="row_3_17 weibo_section"></span>
@@ -574,10 +614,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_4_8 pinterest_section"></span>
                     <span class="row_4_9 linkedin_section"></span>
                     <span class="row_4_10 instagram_section"></span>
+                    <span class="row_4_30 threads_section"></span>
                     <span class="row_4_25 ria_section"></span>
                     <span class="row_4_26 inha_section"></span>
                     <span class="row_4_14 telegram_section"></span>
                     <span class="row_4_15 vk_section"></span>
+                    <span class="row_4_31 bluesky_section"></span>
                     <span class="row_4_16 ok_section"></span>
                     <span class="row_4_19 whatsapp_section"></span>
                     <span class="row_4_17 weibo_section"></span>
@@ -604,10 +646,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_5_8 pinterest_section"></span>
                     <span class="row_5_9 linkedin_section"></span>
                     <span class="row_5_10 instagram_section"></span>
+                    <span class="row_5_30 threads_section"></span>
                     <span class="row_5_25 ria_section"></span>
                     <span class="row_5_26 inha_section"></span>
                     <span class="row_5_14 telegram_section"></span>
                     <span class="row_5_15 vk_section"></span>
+                    <span class="row_5_31 bluesky_section"></span>
                     <span class="row_5_16 ok_section"></span>
                     <span class="row_5_19 whatsapp_section"></span>
                     <span class="row_5_17 weibo_section"></span>
@@ -632,10 +676,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_6_8 pinterest_section"></span>
                     <span class="row_6_9 linkedin_section"></span>
                     <span class="row_6_10 instagram_section"></span>
+                    <span class="row_6_30 threads_section"></span>
                     <span class="row_6_25 ria_section"></span>
                     <span class="row_6_26 inha_section"></span>
                     <span class="row_6_14 telegram_section"></span>
                     <span class="row_6_15 vk_section"></span>
+                    <span class="row_6_31 bluesky_section"></span>
                     <span class="row_6_16 ok_section"></span>
                     <span class="row_6_19 whatsapp_section"></span>
                     <span class="row_6_17 weibo_section"></span>
@@ -660,10 +706,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_7_8 pinterest_section"></span>
                     <span class="row_7_9 linkedin_section"></span>
                     <span class="row_7_10 instagram_section"></span>
+                    <span class="row_7_30 threads_section"></span>
                     <span class="row_7_25 ria_section"></span>
                     <span class="row_7_26 inha_section"></span>
                     <span class="row_7_14 telegram_section"></span>
                     <span class="row_7_15 vk_section"></span>
+                    <span class="row_7_31 bluesky_section"></span>
                     <span class="row_7_16 ok_section"></span>
                     <span class="row_7_19 whatsapp_section"></span>
                     <span class="row_7_17 weibo_section"></span>
@@ -688,10 +736,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_8_8 pinterest_section"></span>
                     <span class="row_8_9 linkedin_section"></span>
                     <span class="row_8_10 instagram_section"></span>
+                    <span class="row_8_30 threads_section"></span>
                     <span class="row_8_25 ria_section"></span>
                     <span class="row_8_26 inha_section"></span>
                     <span class="row_8_14 telegram_section"></span>
                     <span class="row_8_15 vk_section"></span>
+                    <span class="row_8_31 bluesky_section"></span>
                     <span class="row_8_16 ok_section"></span>
                     <span class="row_8_19 whatsapp_section"></span>
                     <span class="row_8_17 weibo_section"></span>
@@ -718,10 +768,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_9_8 pinterest_section"></span>
                     <span class="row_9_9 linkedin_section"></span>
                     <span class="row_9_10 instagram_section"></span>
+                    <span class="row_9_30 threads_section"></span>
                     <span class="row_9_25 ria_section"></span>
                     <span class="row_9_26 inha_section"></span>
                     <span class="row_9_14 telegram_section"></span>
                     <span class="row_9_15 vk_section"></span>
+                    <span class="row_9_31 bluesky_section"></span>
                     <span class="row_9_16 ok_section"></span>
                     <span class="row_9_19 whatsapp_section"></span>
                     <span class="row_9_17 weibo_section"></span>
@@ -747,10 +799,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_10_8 pinterest_section"></span>
                     <span class="row_10_9 linkedin_section"></span>
                     <span class="row_10_10 instagram_section"></span>
+                    <span class="row_10_30 threads_section"></span>
                     <span class="row_10_25 ria_section"></span>
                     <span class="row_10_26 inha_section"></span>
                     <span class="row_10_14 telegram_section"></span>
                     <span class="row_10_15 vk_section"></span>
+                    <span class="row_10_31 bluesky_section"></span>
                     <span class="row_10_16 ok_section"></span>
                     <span class="row_10_19 whatsapp_section"></span>
                     <span class="row_10_17 weibo_section"></span>
@@ -776,10 +830,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_11_8 pinterest_section"></span>
                     <span class="row_11_9 linkedin_section"></span>
                     <span class="row_11_10 instagram_section"></span>
+                    <span class="row_11_30 threads_section"></span>
                     <span class="row_11_25 ria_section"></span>
                     <span class="row_11_26 inha_section"></span>
                     <span class="row_11_14 telegram_section"></span>
                     <span class="row_11_15 vk_section"></span>
+                    <span class="row_11_31 bluesky_section"></span>
                     <span class="row_11_16 ok_section"></span>
                     <span class="row_11_19 whatsapp_section"></span>
                     <span class="row_11_17 weibo_section"></span>
@@ -805,10 +861,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_12_8 pinterest_section"></span>
                     <span class="row_12_9 linkedin_section"></span>
                     <span class="row_12_10 instagram_section"></span>
+                    <span class="row_12_30 threads_section"></span>
                     <span class="row_12_25 ria_section"></span>
                     <span class="row_12_26 inha_section"></span>
                     <span class="row_12_14 telegram_section"></span>
                     <span class="row_12_15 vk_section"></span>
+                    <span class="row_12_31 bluesky_section"></span>
                     <span class="row_12_16 ok_section"></span>
                     <span class="row_12_19 whatsapp_section"></span>
                     <span class="row_12_17 weibo_section"></span>
@@ -836,10 +894,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_13_8 pinterest_section"></span>
                     <span class="row_13_9 linkedin_section"></span>
                     <span class="row_13_10 instagram_section"></span>
+                    <span class="row_13_30 silver_section"></span>
                     <span class="row_13_25 ria_section"></span>
                     <span class="row_13_26 inha_section"></span>
                     <span class="row_13_14 telegram_section"></span>
                     <span class="row_13_15 vk_section"></span>
+                    <span class="row_13_31 bluesky_section"></span>
                     <span class="row_13_16 ok_section"></span>
                     <span class="row_13_19 whatsapp_section"></span>
                     <span class="row_13_17 weibo_section"></span>
@@ -865,10 +925,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_14_8 pinterest_section"></span>
                     <span class="row_14_9 linkedin_section"></span>
                     <span class="row_14_10 instagram_section"></span>
+                    <span class="row_14_30 threads_section"></span>
                     <span class="row_14_25 ria_section"></span>
                     <span class="row_14_26 inha_section"></span>
                     <span class="row_14_14 telegram_section"></span>
                     <span class="row_14_15 vk_section"></span>
+                    <span class="row_14_31 bluesky_section"></span>
                     <span class="row_14_16 ok_section"></span>
                     <span class="row_14_19 whatsapp_section"></span>
                     <span class="row_14_17 weibo_section"></span>
@@ -894,10 +956,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_15_8 pinterest_section"></span>
                     <span class="row_15_9 linkedin_section"></span>
                     <span class="row_15_10 instagram_section"></span>
+                    <span class="row_15_30 threads_section"></span>
                     <span class="row_15_25 ria_section"></span>
                     <span class="row_15_26 inha_section"></span>
                     <span class="row_15_14 telegram_section"></span>
                     <span class="row_15_15 vk_section"></span>
+                    <span class="row_15_31 bluesky_section"></span>
                     <span class="row_15_16 ok_section"></span>
                     <span class="row_15_19 whatsapp_section"></span>
                     <span class="row_15_17 weibo_section"></span>
@@ -923,10 +987,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_19_8 pinterest_section"></span>
                     <span class="row_19_9 linkedin_section"></span>
                     <span class="row_19_10 instagram_section"></span>
+                    <span class="row_19_30 threads_section"></span>
                     <span class="row_19_25 ria_section"></span>
                     <span class="row_19_26 inha_section"></span>
                     <span class="row_19_14 telegram_section"></span>
                     <span class="row_19_15 vk_section"></span>
+                    <span class="row_19_31 bluesky_section"></span>
                     <span class="row_19_16 ok_section"></span>
                     <span class="row_19_19 whatsapp_section"></span>
                     <span class="row_19_17 weibo_section"></span>
@@ -951,10 +1017,12 @@ $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_
                     <span class="row_16_8 pinterest_section"></span>
                     <span class="row_16_9 linkedin_section"></span>
                     <span class="row_16_10 instagram_section"></span>
+                    <span class="row_16_30 threads_section"></span>
                     <span class="row_16_25 ria_section"></span>
                     <span class="row_16_26 inha_section"></span>
                     <span class="row_16_14 telegram_section"></span>
                     <span class="row_16_15 vk_section"></span>
+                    <span class="row_16_31 bluesky_section"></span>
                     <span class="row_16_16 ok_section"></span>
                     <span class="row_16_19 whatsapp_section"></span>
                     <span class="row_16_17 weibo_section"></span>
