@@ -7,7 +7,7 @@ Author URI: https://inisev.com
 Plugin URI: https://ultimatelysocial.com
 Text Domain: ultimate-social-media-icons
 Domain Path: /languages
-Version: 2.9.7
+Version: 2.9.8
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -55,7 +55,7 @@ sfsi_error_reporting();
 
 global $wpdb;
 /* define the Root for URL and Document */
-define('SFSI_PLUGIN_VERSION', '2.9.7');
+define('SFSI_PLUGIN_VERSION', '2.9.8');
 define('SFSI_DOCROOT', dirname(__FILE__));
 define('SFSI_YOUTUBE_API_KEY', 'AIzaSyCWiL-jpKDeU5-bVVfU-sk33j6hFJiS-8g');
 
@@ -400,6 +400,47 @@ function sfsi_load_domain()
     $plugin_dir = basename(dirname(__FILE__)) . '/languages';
 
     load_plugin_textdomain(SFSI_DOMAIN, false, $plugin_dir);
+}
+
+// Simulates a bad translation with an extra %5$s placeholder (remove after verifying the fix)
+// https://wordpress.org/support/topic/plugins-settings-page-doesnt-load-possible-translation-issue/
+//add_filter('gettext', function($translation, $text, $domain) {
+//    if ($domain !== 'ultimate-social-media-icons') return $translation;
+//    if (strpos($text, 'more readers') !== false) {
+//        return '%1$s more readers%2$s as explained %3$shere.%4$s %5$s';
+//    }
+//    return $translation;
+//}, 9, 3);
+
+/**
+ * Strip positional placeholders (%5$s etc.) that a translator added
+ * beyond what the source string provides. Prevents ArgumentCountError
+ * on PHP 8+ when printf/sprintf receives fewer arguments than the
+ * translated format string expects.
+ */
+add_filter('gettext', 'sfsi_sanitize_translation_placeholders', 10, 3);
+function sfsi_sanitize_translation_placeholders($translation, $text, $domain)
+{
+    if ($domain !== 'ultimate-social-media-icons') return $translation;
+    if (strpos($translation, '%') === false) return $translation;
+
+    $orig_max = 0;
+    if (preg_match_all('/%(\d+)\$/', $text, $m)) {
+        $orig_max = max(array_map('intval', $m[1]));
+    }
+
+    $trans_max = 0;
+    if (preg_match_all('/%(\d+)\$/', $translation, $m)) {
+        $trans_max = max(array_map('intval', $m[1]));
+    }
+
+    if ($trans_max > $orig_max) {
+        for ($i = $orig_max + 1; $i <= $trans_max; $i++) {
+            $translation = preg_replace('/%' . $i . '\$[sdf]/', '', $translation);
+        }
+    }
+
+    return $translation;
 }
 
 //sanitizing values
