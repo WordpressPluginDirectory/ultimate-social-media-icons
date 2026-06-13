@@ -2,8 +2,8 @@
 Contributors: socialdude, socialtech
 Tags: share, social, share icons, social media, widget
 Requires at least: 3.5
-Tested up to: 6.9.4
-Stable tag: 2.9.8
+Tested up to: 7.0
+Stable tag: 2.9.9
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -301,6 +301,11 @@ It depends on which language you speak :) however probably the answer is â€œyesâ
 
 
 == Changelog ==
+= 2.9.9 =
+* Tested with WordPress 7.0
+* [FIX] page crash from translations with extra printf placeholders
+* [ENHANCEMENT] Other minor enhancements and bug fixes
+
 = 2.9.8 =
 * Tested with WordPress 6.9.4
 * [FIX] fatal error when using some transalations
@@ -436,7 +441,7 @@ It depends on which language you speak :) however probably the answer is â€œyesâ
 
 == Upgrade Notice ==
 
-= 2.9.8 =
-* Tested with WordPress 6.9.4
-* [FIX] fatal error when using some transalations
+= 2.9.9 =
+* Tested with WordPress 7.0
+* [FIX] page crash from translations with extra printf placeholders
 * [ENHANCEMENT] Other minor enhancements and bug fixes

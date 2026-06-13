@@ -7,7 +7,7 @@ Author URI: https://inisev.com
 Plugin URI: https://ultimatelysocial.com
 Text Domain: ultimate-social-media-icons
 Domain Path: /languages
-Version: 2.9.8
+Version: 2.9.9
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -55,7 +55,7 @@ sfsi_error_reporting();
 
 global $wpdb;
 /* define the Root for URL and Document */
-define('SFSI_PLUGIN_VERSION', '2.9.8');
+define('SFSI_PLUGIN_VERSION', '2.9.9');
 define('SFSI_DOCROOT', dirname(__FILE__));
 define('SFSI_YOUTUBE_API_KEY', 'AIzaSyCWiL-jpKDeU5-bVVfU-sk33j6hFJiS-8g');
 
@@ -402,21 +402,11 @@ function sfsi_load_domain()
     load_plugin_textdomain(SFSI_DOMAIN, false, $plugin_dir);
 }
 
-// Simulates a bad translation with an extra %5$s placeholder (remove after verifying the fix)
-// https://wordpress.org/support/topic/plugins-settings-page-doesnt-load-possible-translation-issue/
-//add_filter('gettext', function($translation, $text, $domain) {
-//    if ($domain !== 'ultimate-social-media-icons') return $translation;
-//    if (strpos($text, 'more readers') !== false) {
-//        return '%1$s more readers%2$s as explained %3$shere.%4$s %5$s';
-//    }
-//    return $translation;
-//}, 9, 3);
-
 /**
- * Strip positional placeholders (%5$s etc.) that a translator added
- * beyond what the source string provides. Prevents ArgumentCountError
- * on PHP 8+ when printf/sprintf receives fewer arguments than the
- * translated format string expects.
+ * Strip placeholders a translator added beyond what the source string
+ * provides — positional %5$s, plain %s, or width forms like %5s. Prevents
+ * ArgumentCountError on PHP 8+ when printf/sprintf receives fewer arguments
+ * than the translated format string expects.
  */
 add_filter('gettext', 'sfsi_sanitize_translation_placeholders', 10, 3);
 function sfsi_sanitize_translation_placeholders($translation, $text, $domain)
@@ -424,23 +414,24 @@ function sfsi_sanitize_translation_placeholders($translation, $text, $domain)
     if ($domain !== 'ultimate-social-media-icons') return $translation;
     if (strpos($translation, '%') === false) return $translation;
 
-    $orig_max = 0;
-    if (preg_match_all('/%(\d+)\$/', $text, $m)) {
-        $orig_max = max(array_map('intval', $m[1]));
+    // Args the source supplies: highest positional index, else count of plain specs.
+    $spec = '/%%|%(\d+\$)?[-+ 0#]*\d*(?:\.\d+)?[bcdeEfFgGosuxX]/';
+    preg_match_all($spec, $text, $m, PREG_SET_ORDER);
+    $orig_max = 0; $plain = 0;
+    foreach ($m as $s) {
+        if ($s[0] === '%%') continue;
+        empty($s[1]) ? $plain++ : $orig_max = max($orig_max, (int) $s[1]);
     }
+    $allowed = $orig_max ?: $plain;
+    if (!$allowed) return $translation;
 
-    $trans_max = 0;
-    if (preg_match_all('/%(\d+)\$/', $translation, $m)) {
-        $trans_max = max(array_map('intval', $m[1]));
-    }
-
-    if ($trans_max > $orig_max) {
-        for ($i = $orig_max + 1; $i <= $trans_max; $i++) {
-            $translation = preg_replace('/%' . $i . '\$[sdf]/', '', $translation);
-        }
-    }
-
-    return $translation;
+    // Drop any translation spec that reads past the args the source supplies.
+    $i = 0;
+    return preg_replace_callback($spec, function ($s) use ($allowed, &$i) {
+        if ($s[0] === '%%') return $s[0];
+        if (!empty($s[1])) return (int) $s[1] > $allowed ? '' : $s[0];
+        return ++$i > $allowed ? '' : $s[0];
+    }, $translation);
 }
 
 //sanitizing values
@@ -815,9 +806,9 @@ function sfsi_admin_notice()
     <!-- </style> -->
     <?php
 
-    include("views/sfsi_plugin_lists.php");
-    include("views/sfsi_other_banners.php");
-    include("views/sfsi_global_banners.php");
+    include_once("views/sfsi_plugin_lists.php");
+    include_once("views/sfsi_other_banners.php");
+    include_once("views/sfsi_global_banners.php");
 
     if (is_ssl() && false) {
         if (get_option("show_premium_cumulative_count_notification") == "yes") {
