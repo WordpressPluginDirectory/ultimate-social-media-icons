@@ -2,8 +2,8 @@
 Contributors: socialdude, socialtech
 Tags: share, social, share icons, social media, widget
 Requires at least: 3.5
-Tested up to: 7.0
-Stable tag: 2.9.9
+Tested up to: 7.0.4
+Stable tag: 3.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -301,147 +301,14 @@ It depends on which language you speak :) however probably the answer is â€œyesâ
 
 
 == Changelog ==
-= 2.9.9 =
-* Tested with WordPress 7.0
-* [FIX] page crash from translations with extra printf placeholders
-* [ENHANCEMENT] Other minor enhancements and bug fixes
+= 3.0.2 =
+* Tested upto WordPress 7.0.4
+* [SECURITY] WeChat icons security fix.
+* [OTHER] Other fixes
 
-= 2.9.8 =
-* Tested with WordPress 6.9.4
-* [FIX] fatal error when using some transalations
-* [ENHANCEMENT] Other minor enhancements and bug fixes
-
-= 2.9.7 =
-* Tested with WordPress 6.9.1
-* [FIX] Resolved fatal error caused by direct access to index.php files.
-* [ENHANCEMENT] Added PHP 8.x compatibility checks for safer array access handling.
-
-= 2.9.6 =
-* Added new social media support (Threads & Bluesky)
-* Tested with WordPress 6.8.3
-* Improved UX by fixing various bugs
-* Improved UI
-
-= 2.9.5 =
-* Tested with wordpress 6.7.2
-* Improved icon placement
-* Fixed user bugs
-* Improved stability
-
-= 2.9.4 =
-* Refactored Youtube subscribe button to use channel id
-
-= 2.9.3 =
-* Tested with WordPress 6.6.2
-* Aligned new icons for desktop (Copy URL, InHa, RIA)
-* Fixed option to hide/show display count for X/Twitter platform
-* Improved CSS generation for icons (widget)
-* Fixed issue when not all settings were saved in Section 3
-* Added new icons for Copy Site URL button
-* Added more detailed errors during settings conflicts
-* Updated facebook SDK to v3.2
-* Improved placement of Whatsapp and Pinterest icons 
-
-= 2.9.2 =
-* Resolved CVE-2024-37552
-* Tested with WordPress 6.6
-* Minor performance improvements 
-* Improvements for PHP 8 utilization
-* Fixed copy url icon in Edge cases
-
-= 2.9.1 =
-* Added new icons 
-* Improved email filter
-* Tested with WordPress 6.5.3
-* Better calibration of icons  
-* Fixed bugs with icon sizes
-* Fixed translation lines
-
-= 2.9.0 =
-* [FIX] Select default color RateItAll social network icon
-* [FIX] Select default color IncreasingHappiness social network icon
-
-= 2.8.9 =
-* [NEW] Adding new RateItAll social network icon
-* [NEW] Adding new IncreasingHappiness social network icon
-* [NOTE] Tested with WordPress v6.5 
-* [NOTE] Patched reported issues (@Dmitrii Ignatyev) + 7823147
-
-= 2.8.8 =
-* [FIX] Fixed CRS Errors 
-* [FIX] Fixed permissions for settings access, now users with "manage_options" can access the plugin
-* [FIX] Fixed issue with sfsi_plus_hide_admin_forum_notification action. 
-* [FIX] Issues with X/Twitter URL share encoding and URL sanitization.
-* [NOTE] Updated plugin's author name in readme
-* [NOTE] Tested with WordPress v6.4.3
-
-= 2.8.7 =
-* [NEW] Improved look of Dark X icons and buttons
-* [NEW] Refactored code of facebook share/likes API
-* [NEW] Added alternate text to icons in reader mode
-* [FIX] Adjusted text of "Tweet" -> "Post on X" where needed
-* [FIX] Adjusted X icon position on desktop screens
-* [FIX] Resolved minor issues with floating icons
-* [FIX] Resolved issues with facebook share cache count
-* [FIX] Resolved issues with hover text of copy icon
-* [FIX] Added proper setting validation to prevent issues with PHP 8+
-* [NOTE] Upgraded "TryItOut" module to latest version
-* [NOTE] Upgraded analyst module to latest version
-* [NOTE] Tested with WordPress v6.4.2
-* [NOTE] Tested up to PHP v8.3
-
-= 2.8.6 =
-* Tested with WordPress 6.4-beta & PHP 8.2
-* Now icons are disabled in page builders
-* Improved copy icon functionality to support more systems
-* Replaced twitter icon with X
-* Changed default colors for X
-* Updated carrousel module for PHP 8.2 and resolved conflicts
-* Improved overall compatiblity with PHP 8.2
-
-= 2.8.5 =
-* Forced "Try it out" module to be disabled by default, user can still enable it manually.
-
-= 2.8.4 =
-* Fixed important issues reported by Rafie M
-
-= 2.8.3 =
-* Removed unused modules
-* Updated all shared modules to their latest versions
-* Tested with WP 6.3 RC
-* Improved PHP 8+ compatibility
-
-= 2.8.2 =
-* Tested with WP 6.2.2
-* Adjusted text inputs
-* Removed unused modules
-* Updated carrousel module
-
-= 2.8.1 =
-* Tested with WP 6.2
-* Added mastodon icons and support
-* Fixed display bugs
-* Adjusted plugin compatibility with third-party plugins
-* Fixed share counts
-* Fixed social pop-up icons not displaying
-* Adjustment of flat icons
-* Allow to show other icons on popup banner
-* Fixed offset PHP errors
-
-= 2.8.0 =
-* Adjusted PHP compatibility
-
-= 2.7.9 =
-* Added black-friday theme (only for that period)
-* Tested up to WordPress 6.1.1
-
-= 2.7.8 =
-* Fixed issues with after post icons
-* Plugin tested with WordPress 6.1 @ PHP 8.1
 
 == Upgrade Notice ==
-
-= 2.9.9 =
-* Tested with WordPress 7.0
-* [FIX] page crash from translations with extra printf placeholders
-* [ENHANCEMENT] Other minor enhancements and bug fixes
+= 3.0.2 =
+* Tested upto WordPress 7.0.4
+* [SECURITY] WeChat icons security fix.
+* [OTHER] Other fixes

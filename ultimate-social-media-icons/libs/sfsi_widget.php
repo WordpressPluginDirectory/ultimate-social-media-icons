@@ -811,17 +811,16 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$page_option = isset($sfsi_section2_options['sfsi_facebookPage_option']) && !empty($sfsi_section2_options['sfsi_facebookPage_option']) ? $sfsi_section2_options['sfsi_facebookPage_option'] : false;
 
 			$share_option = isset($sfsi_section2_options['sfsi_facebookShare_option']) && !empty($sfsi_section2_options['sfsi_facebookShare_option']) ? $sfsi_section2_options['sfsi_facebookShare_option'] : false;
-			if ((false != $like_option && $like_option == "yes") || (false != $share_option && $share_option == "yes")) {
+			/* The like button used to open this tooltip too, but Meta discontinued it on
+			   10 February 2026, so the share button is the only thing left to show in it. */
+			if (false != $share_option && $share_option == "yes") {
 				$url = ($sfsi_section2_options['sfsi_facebookPage_url']) ? $sfsi_section2_options['sfsi_facebookPage_url'] : '';
   			$url = esc_url($url);
 				$hoverSHow = 1;
 				$hoverdiv  = '';
 
 				if (false != $page_option && $page_option == "yes") {
-					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' /></a></div>";
-				}
-				if (false != $like_option && $like_option == "yes") {
-					$hoverdiv .= "<div  class='icon2'>" . $socialObj->sfsi_FBlike($permalink, 1) . "</div>";
+					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' /></a></div>";
 				}
 				if (false != $share_option && $share_option == "yes") {
 					$hoverdiv .= "<div  class='icon3'>" . $socialObj->sfsiFB_Share(urlencode($current_url)) . "</div>";
@@ -1034,7 +1033,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				$hoverSHow = 1;
 
 				if ($ypage == "yes") {
-					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' /></a></div>";
+					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' /></a></div>";
 				}
 				if ($follow == "yes") {
 					$hoverdiv .= "<div  class='icon2'>" . $socialObj->sfsi_YouTubeSub($youtube_user) . "</div>";
@@ -1129,7 +1128,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				$hoverSHow = 1;
 
 				if ($page == "yes") {
-					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon'  alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' /></a></div>";
+					$hoverdiv .= "<div  class='icon1'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon'  alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' /></a></div>";
 				}
 				if ($pingblog == "yes") {
 					$pinterest_save = SFSI_PLUGURL . 'images/share_icons/Pinterest_Save/' . $icons_language . '_save.svg';
@@ -1239,7 +1238,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$arrow_class = "bot_pintst_arow";
 
 			if ($sfsi_section2_options['sfsi_threadsShare_option'] == "yes") {
-				$url = "https://www.threads.net/intent/post?text=Check%20out%20this%20amazing%20article!&url={$current_url}";
+				$url = "https://www.threads.net/intent/post?text=Check%20out%20this%20amazing%20article!&url=" . urlencode($current_url);
 			}
 
 			//Giving alternative text to image
@@ -1395,14 +1394,14 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 					&& isset($sfsi_section2_options['sfsi_vk_pageURL']) && !empty($sfsi_section2_options['sfsi_vk_pageURL'])
 				) {
 					$visitUrl = $sfsi_section2_options['sfsi_vk_pageURL'];
-					$hoverdiv .= "<div class='icon1'><a href='" . $visitUrl . "'  " . sfsi_checkNewWindow($visitUrl) . "><img class='sfsi_premium_wicon' nopin=nopin alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' /></a></div>";
+					$hoverdiv .= "<div class='icon1'><a href='" . $visitUrl . "'  " . sfsi_checkNewWindow($visitUrl) . "><img class='sfsi_premium_wicon' nopin=nopin alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' /></a></div>";
 				}
 
 				if (
 					isset($sfsi_section2_options['sfsi_vk_share']) && !empty($sfsi_section2_options['sfsi_vk_share'])
 					&& "yes" == $sfsi_section2_options['sfsi_vk_share']
 				) {
-					$hoverdiv .= "<div class='icon2'><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . "><img class='sfsi_premium_wicon' nopin=nopin alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $share_icon . "' /></a></div>";
+					$hoverdiv .= "<div class='icon2'><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . "><img class='sfsi_premium_wicon' nopin=nopin alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $share_icon . "' /></a></div>";
 				}
 			} else {
 
@@ -1452,7 +1451,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 			$arrow_class = "bot_pintst_arow";
 
 			if ($sfsi_section2_options['sfsi_blueskyShare_option'] == "yes") {
-				$url = "https://bsky.app/intent/compose?text=Check%20out%20this%20amazing%20article!%20{$current_url}";
+				$url = "https://bsky.app/intent/compose?text=Check%20out%20this%20amazing%20article!%20" . urlencode($current_url);
 			}
 			//Giving alternative text to image
 			if ( !empty($sfsi_section5_options['sfsi_bluesky_MouseOverText']) ) {
@@ -1615,6 +1614,8 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 
 			$hoverdiv = "";
 
+			$wechat_scan_image = isset($sfsi_section2_options['sfsi_wechat_scan_image']) ? $sfsi_section2_options['sfsi_wechat_scan_image'] : '';
+
 			$cDisplay = isset($sfsi_section4_options['sfsi_wechat_countsDisplay']) && !empty($sfsi_section4_options['sfsi_wechat_countsDisplay']) ? $sfsi_section4_options['sfsi_wechat_countsDisplay'] : false;
 
 			$Displayc = isset($sfsi_section4_options['sfsi_display_counts']) && !empty($sfsi_section4_options['sfsi_display_counts']) ? $sfsi_section4_options['sfsi_display_counts'] : false;
@@ -1637,9 +1638,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 					&& isset($sfsi_section2_options['sfsi_wechat_scan_image']) && !empty($sfsi_section2_options['sfsi_wechat_scan_image'])
 				) {
 
-					$image_url = $sfsi_section2_options['sfsi_wechat_scan_image'];
-
-					$hoverdiv .= "<div class='icon1' style='text-align:center'><a href='' onclick='event.preventDefault();sfsi_wechat_follow(\"" . $sfsi_section2_options['sfsi_wechat_scan_image'] . "\")' ><img data-pin-nopin='true' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' style='height:25px' /></a></div>";
+					$hoverdiv .= "<div class='icon1' style='text-align:center'><a href='' onclick='event.preventDefault();sfsi_wechat_follow(" . sfsi_js_string( $wechat_scan_image ) . ")' ><img data-pin-nopin='true' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' style='height:25px' /></a></div>";
 				}
 
 				if (
@@ -1647,7 +1646,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 					&& "yes" == $sfsi_section2_options['sfsi_wechatShare_option']
 				) {
 
-					$hoverdiv .= "<div class='icon2' style='text-align:center' ><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . " onclick='event.preventDefault();sfsi_wechat_share(\"" . $sfsi_section2_options['sfsi_wechat_scan_image'] . "\")' ><img data-pin-nopin='true' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $share_icon . "' style='height:25px' /></a></div>";
+					$hoverdiv .= "<div class='icon2' style='text-align:center' ><a href='" . $url . "'  " . sfsi_checkNewWindow($url) . " onclick='event.preventDefault();sfsi_wechat_share(" . sfsi_js_string( $wechat_scan_image ) . ")' ><img data-pin-nopin='true' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $share_icon . "' style='height:25px' /></a></div>";
 				}
 			} else {
 				if (
@@ -1655,7 +1654,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 					&& isset($sfsi_section2_options['sfsi_wechat_scan_image']) && !empty($sfsi_section2_options['sfsi_wechat_scan_image'])
 				) {
 
-					$sfsi_onclick = "event.preventDefault();sfsi_wechat_follow(\'" . $sfsi_section2_options['sfsi_wechat_scan_image'] . "\')";
+					$sfsi_onclick = "event.preventDefault();sfsi_wechat_follow(" . sfsi_js_string( $wechat_scan_image ) . ")";
 				}
 
 				if (
@@ -1802,7 +1801,7 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 				$hoverdiv  = '';
 
 				if ($page == "yes") {
-					$hoverdiv .= "<div  class='icon4'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $visit_icon . "' /></a></div>";
+					$hoverdiv .= "<div  class='icon4'><a href='" . $url . "' " . sfsi_checkNewWindow($url) . "><img data-pin-nopin='true' class='sfsi_wicon' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $visit_icon . "' /></a></div>";
 				}
 				if ($follow == "yes") {
 					$hoverdiv .= "<div  class='icon1'>" . $socialObj->sfsi_LinkedInFollow($linkedIn_compayId) . "</div>";
@@ -2349,13 +2348,13 @@ function sfsi_prepairIcons($icon_name, $is_front = 0)
 		$icons .= "<div style='width:" . $icon_width . "px; height:" . $icon_width . "px;margin-left:" . $icons_space . "px;margin-bottom:" . $margin_bot . " " . ($sfsi_new_icons ? 'padding:0px' : '') . "' class='" . $itemselector . " " . $cmcls . "' >";
 
 		if ($sfsi_icon_bgColor) {
-			$sfsi_icon_bgColor_style = "background:" . $sfsi_icon_bgColor . ";";
+			$sfsi_icon_bgColor_style = "background:" . esc_attr($sfsi_icon_bgColor) . ";";
 		}
 
 		$icons .= "<div class='" . $innrselector . "'>";
 
-		$icons .= "<a class='" . $class . " sficn' data-effect='" . $mouse_hover_effect . "' $new_window  href='" . $url . "' " . (('vk' !== $icon_name) ? "id='sfsiid_" . $icon_name . "_icon'" : '') . " style='width:" . $icons_size . "px;height:" . $icons_size . "px;opacity:" . $icon_opacity . ";" . $sfsi_icon_bgColor_style . "' " . (isset($sfsi_onclick) ? 'onclick="' . $sfsi_onclick . '"' : '') . " >";
-		$icons .= "<img data-pin-nopin='true' alt='" . $alt_text . "' title='" . $alt_text . "' src='" . $icon . "' width='" . $icons_size . "' height='" . $icons_size . "' style='" . $border_radius . $padding_top . "' class='sfcm sfsi_wicon " . (in_array($icon_name, array('telegram', 'wechat')) ? ('sfsi_' . $icon_name . '_wicon sfsi_click_wicon') : ('')) . "' data-effect='" . $mouse_hover_effect . "'   />";
+		$icons .= "<a class='" . $class . " sficn' data-effect='" . esc_attr($mouse_hover_effect) . "' $new_window  href='" . esc_attr($url) . "' " . (('vk' !== $icon_name) ? "id='sfsiid_" . $icon_name . "_icon'" : '') . " style='width:" . $icons_size . "px;height:" . $icons_size . "px;opacity:" . $icon_opacity . ";" . $sfsi_icon_bgColor_style . "' " . (isset($sfsi_onclick) ? 'onclick="' . esc_attr($sfsi_onclick) . '"' : '') . " >";
+		$icons .= "<img data-pin-nopin='true' alt='" . esc_attr($alt_text) . "' title='" . esc_attr($alt_text) . "' src='" . $icon . "' width='" . $icons_size . "' height='" . $icons_size . "' style='" . $border_radius . $padding_top . "' class='sfcm sfsi_wicon " . (in_array($icon_name, array('telegram', 'wechat')) ? ('sfsi_' . $icon_name . '_wicon sfsi_click_wicon') : ('')) . "' data-effect='" . esc_attr($mouse_hover_effect) . "'   />";
 		$icons .= '</a>';
 		if (isset($counts) &&  $counts !== '') {
 			$icons .= '<span class="bot_no ' . $bt_class . '">' . $counts . '</span>';

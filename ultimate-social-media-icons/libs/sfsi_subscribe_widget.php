@@ -82,10 +82,10 @@ class subscriber_widget extends WP_Widget {
 						<h5>' . trim(sanitize_text_field($option8['sfsi_form_heading_text'])) . '</h5>
 						<div class="sfsi_subscription_form_field">
 						<input type="hidden" name="action" value="followPub">
-							<input type="email" name="email" value="" placeholder="' . trim($option8['sfsi_form_field_text']) . '"/>
+							<input type="email" name="email" value="" placeholder="' . esc_attr(trim($option8['sfsi_form_field_text'])) . '"/>
 						</div>
 						<div class="sfsi_subscription_form_field">
-							<input type="submit" name="subscribe" value="'.sanitize_text_field($option8['sfsi_form_button_text']).'"/>
+							<input type="submit" name="subscribe" value="'.esc_attr(sanitize_text_field($option8['sfsi_form_button_text'])).'"/>
 						</div>
 					</form>
 				</div>';

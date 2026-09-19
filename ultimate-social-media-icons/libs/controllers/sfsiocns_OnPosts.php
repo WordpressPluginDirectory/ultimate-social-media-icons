@@ -85,7 +85,7 @@ function sfsi_social_buttons_below( $content ) {
 				$float = $sfsi_section6['sfsi_icons_alignment'];
 
 				$icons = '';
-				if ( $sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes' || $sfsi_section6['sfsi_rectpinit'] == 'yes' || $sfsi_section6['sfsi_rectfbshare'] == 'yes' ) {
+				if ( $sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes' || $sfsi_section6['sfsi_rectpinit'] == 'yes' || $sfsi_section6['sfsi_rectfbshare'] == 'yes' ) {
 
 					$option3 = maybe_unserialize( get_option( 'sfsi_section3_options', false ) );
 					/* Add mouseOve effect */
@@ -101,10 +101,6 @@ function sfsi_social_buttons_below( $content ) {
 					if ($sfsi_section6['sfsi_rectsub'] == 'yes') {
 
 						$icons .= "<div class='sf_subscrbe sf_icon' style='text-align:left;vertical-align: middle;float:left;width:auto'>" . sfsi_Subscribelike($permalink, $show_count) . "</div>";
-					}
-					if ($sfsi_section6['sfsi_rectfb'] == 'yes') {
-
-						$icons .= "<div class='sf_fb sf_icon' style='text-align:left;vertical-align: middle;'>" . sfsi_FBlike($permalink, $show_count) . "</div>";
 					}
 					if ($sfsi_section6['sfsi_rectfbshare'] == 'yes') {
 
@@ -320,31 +316,16 @@ function sfsi_pinterest_Customs($permalink = '', $show_count = false)
 		}
 	}
 
-	$pinit_html = "<a href='#' onclick='sfsi_pinterest_modal_images(event,\"" . $permalink . "\",\"" . $description . "\")' style='display:inline-block;'  > <img class='sfsi_wicon'  data-pin-nopin='true' alt='fb-share-icon' title='Pin Share' src='" . SFSI_PLUGURL . "images/share_icons/Pinterest_Save/".$icons_language."_save.svg" . "' /></a>";
+	$pinit_html = "<a href='#' onclick='sfsi_pinterest_modal_images(event," . sfsi_js_string( $permalink ) . "," . sfsi_js_string( $description ) . ")' style='display:inline-block;'  > <img class='sfsi_wicon'  data-pin-nopin='true' alt='fb-share-icon' title='Pin Share' src='" . SFSI_PLUGURL . "images/share_icons/Pinterest_Save/".$icons_language."_save.svg" . "' /></a>";
 	return $pinit_html;
 }
 
-/* create fb like button */
+/* Meta discontinued the Facebook Like Button on 10 February 2026. It renders as an
+   invisible element and has no replacement, so nothing is emitted for it. The share
+   button, built by sfsiFB_Share_Custom(), is unaffected. */
 function sfsi_FBlike($permalink, $show_count)
 {
-	$send = 'false';
-	$fb_like_html = '';
-
-	$option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
-    /* Check Show count on */
-    $className = 'margin-disable-count';
-    if ($show_count){
-        $className = 'margin-enable-count';
-    }
-	$fb_like_html .= '<div class="fb-like '. $className .'" data-href="' . $permalink . '"  data-send="' . $send . '" ';
-
-	if ($show_count == 1) {
-		$fb_like_html .= 'data-layout="button_count"';
-	} else {
-		$fb_like_html .= 'data-layout="button"';
-	}
-	$fb_like_html .= ' ></div>';
-	return $fb_like_html;
+	return '';
 }
 
 function sfsiFB_Share_Custom($permalink, $show_count = false)
@@ -398,11 +379,6 @@ function sfsi_footer_script() {
         $sfsi_section1 = [];
     }
 
-    $sfsi_section6 = maybe_unserialize(get_option('sfsi_section6_options', false));
-    if (!is_array($sfsi_section6)){
-        $sfsi_section6 = [];
-    }
-
     $sfsi_section9 = maybe_unserialize(get_option('sfsi_section9_options', false));
     if (!is_array($sfsi_section9)){
         $sfsi_section9 = [];
@@ -413,98 +389,10 @@ function sfsi_footer_script() {
         $sfsi_section2 = [];
     }
 
-	if (!isset($sfsi_section6['sfsi_rectsub'])) {
-		$sfsi_section6['sfsi_rectsub'] = 'no';
-	}
-	if (!isset($sfsi_section6['sfsi_rectfb'])) {
-		$sfsi_section6['sfsi_rectfb'] = 'yes';
-	}
-	if (!isset($sfsi_section6['sfsi_rectshr'])) {
-		$sfsi_section6['sfsi_rectshr'] = 'yes';
-	}
-	if (!isset($sfsi_section6['sfsi_recttwtr'])) {
-		$sfsi_section6['sfsi_recttwtr'] = 'no';
-	}
-	if (!isset($sfsi_section6['sfsi_rectpinit'])) {
-		$sfsi_section6['sfsi_rectpinit'] = 'no';
-	}
-	if (!isset($sfsi_section6['sfsi_rectfbshare'])) {
-		$sfsi_section6['sfsi_rectfbshare'] = 'no';
-	}
-
     $sisi_common_options_check = false;
     if (isset($sfsi_section9['sfsi_show_via_widget'], $sfsi_section9['sfsi_icons_float'],$sfsi_section9['sfsi_show_via_shortcode'])){
         $sisi_common_options_check = (($sfsi_section9['sfsi_show_via_widget'] == "yes") || ($sfsi_section9['sfsi_icons_float'] == "yes") && (isset($sfsi_section9['sfsi_icons_floatPosition'])) || ($sfsi_section9['sfsi_show_via_shortcode'] == "yes"));
     }
-
-    $flagIconAfterPost =false;
-    if (isset($sfsi_section9['sfsi_show_via_afterposts'])){
-        $flagIconAfterPost = $sfsi_section9['sfsi_show_via_afterposts'] === 'yes';
-    }
-
-    $flagEnableLikeAndShare =false;
-    if (isset($sfsi_section6['sfsi_rectfb'],$sfsi_section6['sfsi_rectfbshare'])){
-        $flagEnableLikeAndShare = ($sfsi_section6['sfsi_rectfb'] == "yes" || $sfsi_section6['sfsi_rectfbshare'] == "yes");
-    }
-
-    if ($sfsi_section1['sfsi_facebook_display'] == "yes" || ($flagIconAfterPost && $flagEnableLikeAndShare) ) {
-        if (isset($sfsi_section6['sfsi_rectfb'])){
-            if ((($sfsi_section6['sfsi_rectfb'] == "yes")) || $sisi_common_options_check && ($sfsi_section2['sfsi_facebookLike_option'] == "yes")) {
-
-                $sfsi_section5 = maybe_unserialize(get_option('sfsi_section5_options', false));
-                if ( isset( $sfsi_section5['sfsi_icons_language'] ) && !empty( $sfsi_section5['sfsi_icons_language'] ) ) {
-                    $icons_language = $sfsi_section5['sfsi_icons_language'];
-
-                    if ($icons_language == 'ar') {
-                        $icons_language = 'ar_AR';
-                    }
-                    if ( $icons_language == "ja" ) {
-                        $icons_language = "ja_JP";
-                    }
-                    if ( $icons_language == "el" ) {
-                        $icons_language = "el_GR";
-                    }
-                    if ( $icons_language == "fi" ) {
-                        $icons_language = "fi_FI";
-                    }
-                    if ( $icons_language == "th" ) {
-                        $icons_language = "th_TH";
-                    }
-                    if ( $icons_language == "vi" ) {
-                        $icons_language = "vi_VN";
-                    }
-
-                    if ( "automatic" == $icons_language ) {
-                        if (function_exists('icl_object_id') && has_filter('wpml_current_language')) {
-                            $icons_language = apply_filters('wpml_current_language', NULL);
-                            if (!empty($icons_language)) {
-                                $icons_language = sfsi_wordpress_locale_from_locale_code_global($icons_language);
-                            }
-                        } else {
-                            $icons_language = get_locale();
-                        }
-                    }
-                } else {
-                    $icons_language = "en_US";
-                }
-
-                ?>
-                <!--facebook like and share js -->
-                <div id="fb-root"></div>
-                <script>
-                    (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "https://connect.facebook.net/<?php echo $icons_language; ?>/sdk.js#xfbml=1&version=v3.2";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
-                <?php
-            }
-        }
-	}
 
 	$isYoutubeFollowFeatureActive = (isset($sfsi_section2['sfsi_youtube_follow']) && "yes" == $sfsi_section2['sfsi_youtube_follow']) && (isset($sfsi_section2['sfsi_youtubeusernameorid']) &&
 		!empty($sfsi_section2['sfsi_youtubeusernameorid'])) && (

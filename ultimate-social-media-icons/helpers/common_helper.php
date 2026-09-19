@@ -412,3 +412,17 @@ function sfsi_flat_icon_color( $iconName, $option3 ) {
 
     return $sfsi_icon_bgColor_style;
 }
+
+/*
+ * Quote a value as a JavaScript string literal, safe to place inside an inline event handler attribute.
+ * Returns the value with its surrounding quotes, so callers concatenate it without adding their own.
+ *
+ * JSON_HEX_AMP is the load-bearing flag: esc_js() and esc_attr() leave an existing "&#034;" untouched,
+ * because _wp_specialchars() runs with $double_encode = false. The browser then decodes it to a quote
+ * after it has already tokenised the attribute, so the quote reaches the JavaScript parser and closes
+ * the string. Removing the ampersand means no character reference can form in the first place.
+ * JSON_HEX_APOS stops the value closing a single-quoted attribute.
+ */
+function sfsi_js_string( $value ) {
+	return wp_json_encode( (string) $value, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT );
+}

@@ -7,7 +7,7 @@ Author URI: https://inisev.com
 Plugin URI: https://ultimatelysocial.com
 Text Domain: ultimate-social-media-icons
 Domain Path: /languages
-Version: 2.9.9
+Version: 3.0.2
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -55,7 +55,13 @@ sfsi_error_reporting();
 
 global $wpdb;
 /* define the Root for URL and Document */
-define('SFSI_PLUGIN_VERSION', '2.9.9');
+define('SFSI_PLUGIN_VERSION', '3.0.2');
+
+/* Graph API version used by every graph.facebook.com call. Meta retires a version
+   about two years after release; v26.0 was released 29 July 2026. A call naming a
+   retired version is served by whichever version is oldest at the time, so this has
+   to be bumped rather than left to drift. */
+define('SFSI_FB_GRAPH_VERSION', 'v26.0');
 define('SFSI_DOCROOT', dirname(__FILE__));
 define('SFSI_YOUTUBE_API_KEY', 'AIzaSyCWiL-jpKDeU5-bVVfU-sk33j6hFJiS-8g');
 
